@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager manager;
 
-    public enum TurnState { Menu, Attacks, CharacterSwap, }
+    public enum TurnState { Menu, Attacks, CharacterSwap, Stats }
     public TurnState turnstate;
 
     void Awake () {
