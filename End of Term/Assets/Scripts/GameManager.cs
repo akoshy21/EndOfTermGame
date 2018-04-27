@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public enum TurnState { Menu, Attacks, CharacterSwap, Stats }
     public TurnState turnstate;
 
+    public GameObject CharacterSwapPanel;
+
     void Awake () {
         GameManagerSetup();
 	}
@@ -21,7 +23,8 @@ public class GameManager : MonoBehaviour {
 
 
     void Update () {
-		
+        PanelManager();
+        Debug.Log(turnstate);
 	}
 
     void GameManagerSetup()
@@ -34,6 +37,18 @@ public class GameManager : MonoBehaviour {
         else if (manager != this)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void PanelManager()
+    {
+        if(turnstate == TurnState.CharacterSwap)
+        {
+            CharacterSwapPanel.SetActive(true);
+        }
+        else
+        {
+            CharacterSwapPanel.SetActive(false);
         }
     }
 }

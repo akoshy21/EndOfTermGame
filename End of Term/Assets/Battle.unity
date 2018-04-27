@@ -2256,6 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnstate: 0
+  CharacterSwapPanel: {fileID: 9173828}
 --- !u!4 &1369381874
 Transform:
   m_ObjectHideFlags: 0

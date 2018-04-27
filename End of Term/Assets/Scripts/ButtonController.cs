@@ -66,7 +66,7 @@ public class ButtonController : MonoBehaviour {
                 {
                     ButtonActivate(false);
                 }
-                if (GameManager.manager.turnstate == GameManager.TurnState.Attacks)
+                if (GameManager.manager.turnstate == GameManager.TurnState.Attacks || GameManager.manager.turnstate == GameManager.TurnState.CharacterSwap)
                 {
                     ButtonActivate(true);
                     but.GetComponentInChildren<Text>().text = "Back";
@@ -87,8 +87,11 @@ public class ButtonController : MonoBehaviour {
             GameManager.manager.turnstate = GameManager.TurnState.CharacterSwap;
             if(button == 3)
             GameManager.manager.turnstate = GameManager.TurnState.Stats;
+            if (button == 4)
+                Application.Quit();
+            //change later to switch back to dating sim scene with a bit about how you ran away from the fight
         }
-        if (GameManager.manager.turnstate == GameManager.TurnState.Attacks)
+        if (GameManager.manager.turnstate == GameManager.TurnState.Attacks || GameManager.manager.turnstate == GameManager.TurnState.CharacterSwap)
         {
             if (button == 5)
                 GameManager.manager.turnstate = GameManager.TurnState.Menu;
