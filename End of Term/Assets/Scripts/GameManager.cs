@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
 
     public GameObject CharacterSwapPanel;
 
+	public Character[] team;
+	public Character[] activeDuo;
+
     void Awake () {
         GameManagerSetup();
 	}
@@ -51,4 +54,17 @@ public class GameManager : MonoBehaviour {
             CharacterSwapPanel.SetActive(false);
         }
     }
+
+	public void MakeTheTeam()
+	{
+		team = new Character[4];
+		team [0] = InitScript.roster.characters [0];
+		team [1] = InitScript.roster.characters [1];
+		team [2] = InitScript.roster.characters [2];
+		team [3] = InitScript.roster.characters [3];
+
+		activeDuo = new Character[2];
+		activeDuo[0] = team [0];
+		activeDuo[1] = team [1];
+	}
 }
