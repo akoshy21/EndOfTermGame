@@ -26,10 +26,6 @@ public class InitScript : MonoBehaviour {
 		if (roster == null) {
 			roster = this;
 		}
-	}
-	
-	// Update is called once per frame
-	void Start () {
 		characters = new Character[4];
 
 		characters [0] = new Character (anna, annaSp, "Annamaria", 12, 10, 20, 15);
@@ -37,8 +33,13 @@ public class InitScript : MonoBehaviour {
 		characters [1] = new Character (cindy, cindySp, "Cindy", 10, 17, 13, 17);
 		characters [2] = new Character (luke, lukeSp, "Luke", 17, 13, 17, 10);
 		characters [3] = new Character (rilee, rileeSp, "Rilee", 10, 12, 20, 15);
-	
+
 		GameManager.manager.MakeTheTeam ();
+	}
+	
+	// Update is called once per frame
+	void Start () {
+		
 	}
 
 		

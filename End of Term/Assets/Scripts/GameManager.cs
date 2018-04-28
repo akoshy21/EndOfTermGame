@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 
     void Update () {
         PanelManager();
-        Debug.Log(turnstate);
+        // Debug.Log(turnstate);
 	}
 
     void GameManagerSetup()

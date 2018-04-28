@@ -31,6 +31,8 @@ public class Character {
 		spAttack = sa;
 		spDefense = sd;
 
+		characterName = cn;
+
 		portrait = p;
 		charSprite = cs;
 
