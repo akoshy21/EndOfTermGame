@@ -30,6 +30,8 @@ public class CharacterSwitch : MonoBehaviour {
 	public Button b3;
 	public Button b4;
 
+	public int charToSwap = 0;
+
 	// Use this for initialization
 	void Start () {
 
@@ -58,39 +60,49 @@ public class CharacterSwitch : MonoBehaviour {
 	}
 
 	void SelectedHeroes(){
-		for(int i = 0; i < 4; i++)
-		{
+		for (int i = 0; i < 4; i++) {
 			Debug.Log (i);
 			if (GameManager.manager.activeDuo [0] == GameManager.manager.team [i] || GameManager.manager.activeDuo [1] == GameManager.manager.team [i]) {
 				Debug.Log ("checK");
-				if (i == 0)
-				{
+				if (i == 0) {
 					selected1.gameObject.SetActive (true);
 					b1.GetComponentInChildren<Text> ().text = "SELECTED";
 				}
-				if (i == 1)
-				{
+				if (i == 1) {
 					selected2.gameObject.SetActive (true);
 					b2.GetComponentInChildren<Text> ().text = "SELECTED";
 				}
-				if (i == 2)
-				{
+				if (i == 2) {
 					selected3.gameObject.SetActive (true);
 					b3.GetComponentInChildren<Text> ().text = "SELECTED";
 				}
-				if(i == 3)
-				{
+				if (i == 3) {
 					selected4.gameObject.SetActive (true);
 					b4.GetComponentInChildren<Text> ().text = "SELECTED";
 				}
-				
+
+			}
+			else
+			{
+				Debug.Log ("checKed");
+				if (i == 0) {
+					selected1.gameObject.SetActive (false);
+					b1.GetComponentInChildren<Text> ().text = "deselected";
 				}
+				if (i == 1) {
+					selected2.gameObject.SetActive (false);
+					b2.GetComponentInChildren<Text> ().text = "deselected";
+				}
+				if (i == 2) {
+					selected3.gameObject.SetActive (false);
+					b3.GetComponentInChildren<Text> ().text = "deselected";
+				}
+				if (i == 3) {
+					selected4.gameObject.SetActive (false);
+					b4.GetComponentInChildren<Text> ().text = "deselected";
+				}
+
 			}
 		}
-
-	public void SwapCharacter()
-	{
-		int charNum;
-		
 	}
 }

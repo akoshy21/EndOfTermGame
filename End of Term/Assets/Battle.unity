@@ -291,6 +291,11 @@ MonoBehaviour:
   selected2: {fileID: 1775773511}
   selected3: {fileID: 1589546322}
   selected4: {fileID: 1683772744}
+  b1: {fileID: 1852165029}
+  b2: {fileID: 153675244}
+  b3: {fileID: 22330294}
+  b4: {fileID: 561373519}
+  charToSwap: 0
 --- !u!1 &22330292
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,8 +305,10 @@ GameObject:
   m_Component:
   - component: {fileID: 22330293}
   - component: {fileID: 22330296}
+  - component: {fileID: 22330298}
   - component: {fileID: 22330295}
   - component: {fileID: 22330294}
+  - component: {fileID: 22330297}
   m_Layer: 5
   m_Name: Char3Select
   m_TagString: Untagged
@@ -402,6 +409,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 22330292}
+--- !u!114 &22330297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22330292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe12f2307a32c34d955af36c2118d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bNum: 0
+  but: {fileID: 0}
+  swapper: {fileID: 0}
+--- !u!114 &22330298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22330292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe12f2307a32c34d955af36c2118d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bNum: 3
+  but: {fileID: 0}
+  swapper: {fileID: 9173828}
 --- !u!1 &131666901
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +592,7 @@ GameObject:
   - component: {fileID: 153675246}
   - component: {fileID: 153675245}
   - component: {fileID: 153675244}
+  - component: {fileID: 153675247}
   m_Layer: 5
   m_Name: Char2Select
   m_TagString: Untagged
@@ -657,6 +693,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 153675242}
+--- !u!114 &153675247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 153675242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe12f2307a32c34d955af36c2118d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bNum: 2
+  but: {fileID: 0}
+  swapper: {fileID: 9173828}
 --- !u!1 &224472120
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +991,7 @@ GameObject:
   - component: {fileID: 561373521}
   - component: {fileID: 561373520}
   - component: {fileID: 561373519}
+  - component: {fileID: 561373522}
   m_Layer: 5
   m_Name: Char4Select
   m_TagString: Untagged
@@ -1041,6 +1092,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 561373517}
+--- !u!114 &561373522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561373517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe12f2307a32c34d955af36c2118d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bNum: 4
+  but: {fileID: 0}
+  swapper: {fileID: 9173828}
 --- !u!1 &605227513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1356,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1831,7 +1896,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2252,7 +2317,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2328,7 +2393,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2339,7 +2404,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'name
+  m_Text: 'Annamaria
+
 
 '
 --- !u!1 &1335693336
@@ -3100,7 +3166,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3585,6 +3651,7 @@ GameObject:
   - component: {fileID: 1852165028}
   - component: {fileID: 1852165031}
   - component: {fileID: 1852165030}
+  - component: {fileID: 1852165032}
   - component: {fileID: 1852165029}
   m_Layer: 5
   m_Name: Char1Select
@@ -3686,6 +3753,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1852165027}
+--- !u!114 &1852165032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852165027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe12f2307a32c34d955af36c2118d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bNum: 1
+  but: {fileID: 0}
+  swapper: {fileID: 9173828}
 --- !u!1 &1908649459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,7 +3823,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3816,7 +3897,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
