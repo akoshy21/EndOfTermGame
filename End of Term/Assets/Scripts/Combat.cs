@@ -5,28 +5,43 @@ using UnityEngine.UI;
 
 public class Combat : MonoBehaviour {
 
-	public int selectedMove;
+	public int moveIndex;
+	public Move selectedMove;
+
+	public static Combat combat;
 
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Awake () {
+		if (combat == null) {
+			combat = this;
+		}
 	}
 
-	public void ActivateMove(){
+	public void RunCombat(int moveClicked)
+	{
+		moveIndex = moveClicked - 1;
+
+		selectedMove = GameManager.manager.activeDuo [GameManager.manager.activePlayer].moveSet [moveIndex];
+	}
+
+	public void TargetPeople()
+	{
+		if(selectedMove.targetCount == 1)
+	}
+
+	public void ActivateMove()
+	{
 		// come up with code to do the highlighting and stuff
 		// add code to select enemies / teammates for move effects
 	}
 
 	public void MoveResults()
 	{
-		if (GameManager.manager.activeDuo[GameManager.manager.activePlayer].moveSet[selectedMove].isAttack) {
+		if (selectedMove.isAttack) {
 			// do damage here to selected enemies
-		} else if (!GameManager.manager.activeDuo[GameManager.manager.activePlayer].moveSet[selectedMove].isAttack) {
+		} 
+		else if (!selectedMove.isAttack) 
+		{
 			// do healing here to selected teammate (self, or other, or both)
 		}
 	}
