@@ -19,6 +19,9 @@ public class InitScript : MonoBehaviour {
 	public Sprite luke;
 	public Sprite lukeSp;
 
+	public Sprite burgessSp;
+	public Sprite gordonSp;
+
 	public Character[] characters;
 
 	// Use this for initialization
@@ -29,7 +32,7 @@ public class InitScript : MonoBehaviour {
 		}
 
 		// create character array
-		characters = new Character[4];
+		characters = new Character[6];
 
 
 		// create characters and movesets
@@ -41,6 +44,10 @@ public class InitScript : MonoBehaviour {
 		characters [2] = new Character (luke, lukeSp, "Luke", 17, 13, 17, 10);
 
 		characters [3] = new Character (rilee, rileeSp, "Rilee", 10, 12, 20, 15);
+
+		characters [4] = new Character (null, burgessSp, "Burgess", 10, 12, 20, 15);
+
+		characters [5] = new Character (null, gordonSp, "Gordon", 10, 12, 20, 15);
 
 		GameManager.manager.MakeTheTeam ();
 	}

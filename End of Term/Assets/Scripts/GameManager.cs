@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 
 	public Character[] team;
 	public Character[] activeDuo;
+	public Character[] enemies;
 
     void Awake () {
         GameManagerSetup();
@@ -38,6 +39,9 @@ public class GameManager : MonoBehaviour {
     void Update () {
         PanelManager();
         LightChange();
+
+		SetupSprites ();
+
         Debug.Log(activeDuo[0].characterName);
 	}
 
@@ -66,7 +70,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-	// called in InitScript
+	// called in InitScript (make the team and enemies)
 	public void MakeTheTeam()
 	{
 		team = new Character[4];
@@ -78,6 +82,22 @@ public class GameManager : MonoBehaviour {
 		activeDuo = new Character[2];
 		activeDuo[0] = team [0];
 		activeDuo[1] = team [1];
+
+		enemies = new Character[3];
+		enemies [0] = InitScript.roster.characters [5];
+		enemies [1] = InitScript.roster.characters [4];
+		enemies [2] = InitScript.roster.characters [5];
+	}
+
+	void SetupSprites()
+	{
+		active0.GetComponent<SpriteRenderer> ().sprite = activeDuo [0].charSprite;
+		active1.GetComponent<SpriteRenderer> ().sprite = activeDuo [1].charSprite;
+
+		enemy0.GetComponent<SpriteRenderer> ().sprite = enemies [0].charSprite;
+		enemy1.GetComponent<SpriteRenderer> ().sprite = enemies [1].charSprite;
+		enemy2.GetComponent<SpriteRenderer> ().sprite = enemies [2].charSprite;
+
 	}
 
     void LightChange()
