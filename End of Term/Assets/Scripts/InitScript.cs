@@ -23,15 +23,23 @@ public class InitScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		// make this static script if there isnt one already
 		if (roster == null) {
 			roster = this;
 		}
+
+		// create character array
 		characters = new Character[4];
 
+
+		// create characters and movesets
 		characters [0] = new Character (anna, annaSp, "Annamaria", 12, 10, 20, 15);
 		characters [0].moveSet [0] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, false);
+
 		characters [1] = new Character (cindy, cindySp, "Cindy", 10, 17, 13, 17);
+
 		characters [2] = new Character (luke, lukeSp, "Luke", 17, 13, 17, 10);
+
 		characters [3] = new Character (rilee, rileeSp, "Rilee", 10, 12, 20, 15);
 
 		GameManager.manager.MakeTheTeam ();
