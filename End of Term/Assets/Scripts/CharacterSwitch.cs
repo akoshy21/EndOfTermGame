@@ -68,11 +68,15 @@ public class CharacterSwitch : MonoBehaviour {
 	}
 
 	void SelectedHeroes(){
-		// set the character to swap depending on turnstate.
+        // set the character to swap depending on turnstate.
         if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
+        {
             charToSwap = 0;
+        }
         if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
+        {
             charToSwap = 1;
+        }
 
         for (int i = 0; i < 4; i++) {
 			Debug.Log (i);

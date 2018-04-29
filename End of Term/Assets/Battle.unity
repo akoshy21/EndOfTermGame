@@ -525,7 +525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &137033611
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -919,7 +919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &395533755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &979777312
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2642,7 +2642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1289784092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2955,6 +2955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2da46ad75e66434e8240c4c65afb90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active0: {fileID: 788785729}
+  active1: {fileID: 656056255}
+  enemy0: {fileID: 1935528068}
+  enemy1: {fileID: 416421997}
+  enemy2: {fileID: 510737055}
   turnstate: 0
   curTurn: 0
   CharacterSwapPanel: {fileID: 9173828}
@@ -3285,7 +3290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1608758273
 SpriteRenderer:
   m_ObjectHideFlags: 0
