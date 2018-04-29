@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
 	public Character[] activeDuo;
 	public Character[] enemies;
 
+	public int activePlayer = 0;
+
     // debug shit
     int help;
     public bool end = false;

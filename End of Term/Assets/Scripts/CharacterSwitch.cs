@@ -35,9 +35,6 @@ public class CharacterSwitch : MonoBehaviour {
 	public Button b3;
 	public Button b4;
 
-	// which char to swap, corresponds to team index
-	public int charToSwap;
-
 	// Use this for initialization
 	void Start () {
 
@@ -70,11 +67,11 @@ public class CharacterSwitch : MonoBehaviour {
         // set the character to swap depending on turnstate.
         if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
         {
-            charToSwap = 0;
+			GameManager.manager.activePlayer = 0;
         }
         if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
         {
-            charToSwap = 1;
+			GameManager.manager.activePlayer = 1;
         }
 
         for (int i = 0; i < 4; i++) {
