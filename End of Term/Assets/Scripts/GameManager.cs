@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour {
     {
         turnstate = TurnState.Menu;
         curTurn = CurrentTurn.ActiveDuo0;
+		SetupSprites ();
+
     }
 
 
@@ -40,9 +42,7 @@ public class GameManager : MonoBehaviour {
         PanelManager();
         LightChange();
 
-		SetupSprites ();
-
-        Debug.Log(activeDuo[0].characterName);
+        // Debug.Log(activeDuo[0].characterName);
 	}
 
     void GameManagerSetup()
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour {
 
     void LightChange()
     {
-        Debug.Log(curTurn);
+        // Debug.Log(curTurn);
         switch (curTurn)
         {
             case CurrentTurn.ActiveDuo0:

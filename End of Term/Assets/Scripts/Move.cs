@@ -5,7 +5,6 @@ using UnityEngine;
 public class Move {
 
 	public int targetCount;
-	public bool targetIsEnemy;
 	public int power;
 	public int cost;
 
@@ -19,14 +18,13 @@ public class Move {
 
 	// make spells range of damage/heal
 
-	public Move(string attackName, string desc, int targetNum, bool hitsEnemy, int pow, int manaCost, bool attack)
+	public Move(string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost)
 	{
 		name = attackName;
 		targetCount = targetNum;
-		targetIsEnemy = hitsEnemy;
+		isAttack = boolIsAttack;
 		power = pow;
 		cost = manaCost;
 		description = desc;
-		isAttack = attack;
 	}
 }

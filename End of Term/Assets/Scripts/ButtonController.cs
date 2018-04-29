@@ -29,7 +29,14 @@ public class ButtonController : MonoBehaviour {
                 }
                 if (GameManager.manager.turnstate == GameManager.TurnState.Attacks)
                 {
-                    but.GetComponentInChildren<Text>().text = "Attack 1";
+					if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [0].moveSet [0].name;
+					}
+					else if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [1].moveSet [0].name;
+					}	
                 }
                 if (GameManager.manager.turnstate == GameManager.TurnState.CharacterSwap)
                 {
@@ -44,7 +51,14 @@ public class ButtonController : MonoBehaviour {
                 }
                 if (GameManager.manager.turnstate == GameManager.TurnState.Attacks)
                 {
-                    but.GetComponentInChildren<Text>().text = "Attack 2";
+					if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [0].moveSet [1].name;
+					}
+					else if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [1].moveSet [1].name;
+					}	
                 }
                 if (GameManager.manager.turnstate == GameManager.TurnState.CharacterSwap)
                 {
@@ -59,7 +73,14 @@ public class ButtonController : MonoBehaviour {
                 }
                 if (GameManager.manager.turnstate == GameManager.TurnState.Attacks)
                 {
-                    but.GetComponentInChildren<Text>().text = "Attack 3";
+					if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [0].moveSet [2].name;
+					}
+					else if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [1].moveSet [2].name;
+					}	
                 }
                 if (GameManager.manager.turnstate == GameManager.TurnState.CharacterSwap)
                 {
@@ -74,7 +95,14 @@ public class ButtonController : MonoBehaviour {
                 }
                 if (GameManager.manager.turnstate == GameManager.TurnState.Attacks)
                 {
-                    but.GetComponentInChildren<Text>().text = "Attack 4";
+					if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [0].moveSet [3].name;
+					}
+					else if(GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
+					{
+						but.GetComponentInChildren<Text>().text = GameManager.manager.activeDuo [1].moveSet [3].name;
+					}
                 }
                 if(GameManager.manager.turnstate == GameManager.TurnState.CharacterSwap)
                 {

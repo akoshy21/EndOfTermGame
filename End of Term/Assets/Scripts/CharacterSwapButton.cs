@@ -19,36 +19,46 @@ public class CharacterSwapButton : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-{
+	{
 
-}
+	}
 
-void SwapCharacter()
-{
-    //Cycle to Next Turn After Swapping
-    GameManager.manager.turnstate = GameManager.TurnState.Menu;
+	void SwapCharacter()
+		{
+			//Cycle to Next Turn After Swapping
+			GameManager.manager.turnstate = GameManager.TurnState.Menu;
+			
+	    switch (bNum)
+	    {
+	        case 1:
+	            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[0];
+	            return;
+	        case 2:
+	            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[1];
+	            return;
+	        case 3:
+	            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[2];
+	            return;
+	        case 4:
+	            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[3];
+	            return;
+	        default:
+	            return;
+	    }
 
-        if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
-            GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
+		TurnChange ();
+	}
 
-        if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
-        GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
-    switch (bNum)
-    {
-        case 1:
-            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[0];
-            return;
-        case 2:
-            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[1];
-            return;
-        case 3:
-            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[2];
-            return;
-        case 4:
-            GameManager.manager.activeDuo[swapper.GetComponent<CharacterSwitch>().charToSwap] = GameManager.manager.team[3];
-            return;
-        default:
-            return;
-    }
-}
+	void TurnChange ()
+	{
+		if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1) {
+			GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
+			Debug.Log ("to enemy");
+		} else if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0) {
+			Debug.Log (GameManager.manager.curTurn);
+			GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
+			Debug.Log (GameManager.manager.curTurn);
+			Debug.Log ("to one");
+		} 
+	}
 }

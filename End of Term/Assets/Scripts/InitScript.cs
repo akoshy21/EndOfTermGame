@@ -37,7 +37,7 @@ public class InitScript : MonoBehaviour {
 
 		// create characters and movesets
 		characters [0] = new Character (anna, annaSp, "Annamaria", 12, 10, 20, 15);
-		characters [0].moveSet [0] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, false);
+		characters [0].moveSet [0] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3);
 
 		characters [1] = new Character (cindy, cindySp, "Cindy", 10, 17, 13, 17);
 
