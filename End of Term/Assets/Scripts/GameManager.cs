@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager manager;
 
-    public enum TurnState { Menu, Attacks, CharacterSwap, Stats }
+    public enum TurnState { Menu, Attacks, CharacterSwap, Stats, Target }
     public TurnState turnstate;
 
     public enum CurrentTurn { ActiveDuo0, ActiveDuo1, Enemy0, Enemy1, Enemy2}
@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour {
 	public Character[] team;
 	public Character[] activeDuo;
 	public Character[] enemies;
+
+	public GameObject targeting;
 
 	public int activePlayer = 0;
 
@@ -48,11 +50,13 @@ public class GameManager : MonoBehaviour {
         PanelManager();
         LightChange();
 
+		ConditionalObjects ();
+
 		SetupSprites ();
 
         EndTurn();
 
-        Debug.Log(help);
+        // Debug.Log(help);
 	}
 
     void GameManagerSetup()
@@ -113,15 +117,17 @@ public class GameManager : MonoBehaviour {
     void LightChange()
     {
         // Debug.Log(curTurn);
+		// Debug.Log(turnstate);
+
         switch (curTurn)
         {
             case CurrentTurn.ActiveDuo0:
                 enemy2.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
                 active0.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
                 return;
-            case CurrentTurn.ActiveDuo1:
-                active0.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
-                active1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
+			case CurrentTurn.ActiveDuo1:
+				active0.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
+				active1.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (true);
                 return;
             case CurrentTurn.Enemy0:
                 active1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
@@ -139,6 +145,30 @@ public class GameManager : MonoBehaviour {
                 return;
         }
     }
+
+	void ConditionalObjects()
+	{
+		switch (turnstate)
+		{
+		case TurnState.Menu:
+			targeting.gameObject.SetActive (false);
+			return;
+		case TurnState.Stats:
+			targeting.gameObject.SetActive (false);
+			return;
+		case TurnState.Attacks:
+			targeting.gameObject.SetActive (false);
+			return;
+		case TurnState.CharacterSwap:
+			targeting.gameObject.SetActive (false);
+			return;
+		case TurnState.Target:
+			targeting.gameObject.SetActive (true);
+			return;
+		default:
+			return;
+		}
+	}
 
     public void EndTurn()
     {

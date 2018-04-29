@@ -19,12 +19,14 @@ public class Character {
 	public int maxMP;
 	public int currentMP;
 
+	public int speed;
+
 	public Sprite portrait;
 	public Sprite charSprite;
 
 	public Move[] moveSet = new Move[4];
 
-	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0)
+	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0, int s = 10)
 	{
 		attack = a;
 		defense = d;
@@ -36,6 +38,7 @@ public class Character {
 		portrait = p;
 		charSprite = cs;
 
+		speed = s;
 
 		maxHealth = (defense*spDefense)/10;
 		maxMP = (attack*spAttack)/10;

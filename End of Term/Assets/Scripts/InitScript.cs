@@ -36,18 +36,21 @@ public class InitScript : MonoBehaviour {
 
 
 		// create characters and movesets
-		characters [0] = new Character (anna, annaSp, "Annamaria", 12, 10, 20, 15);
-		characters [0].moveSet [0] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3);
+		characters [0] = new Character (anna, annaSp, "Annamaria", 14, 10, 20, 15, 14);
+		characters [0].moveSet [0] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
+		characters [0].moveSet [1] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
+		characters [0].moveSet [2] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
+		characters [0].moveSet [3] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
 
-		characters [1] = new Character (cindy, cindySp, "Cindy", 10, 17, 13, 17);
+		characters [1] = new Character (cindy, cindySp, "Cindy", 13, 17, 10, 17, 10);
 
-		characters [2] = new Character (luke, lukeSp, "Luke", 17, 13, 17, 10);
+		characters [2] = new Character (luke, lukeSp, "Luke", 18, 13, 12, 10, 17);
 
-		characters [3] = new Character (rilee, rileeSp, "Rilee", 10, 12, 20, 15);
+		characters [3] = new Character (rilee, rileeSp, "Rilee", 14, 12, 18, 15, 14);
 
-		characters [4] = new Character (null, burgessSp, "Burgess", 10, 12, 20, 15);
+		characters [4] = new Character (null, burgessSp, "Burgess", 10, 12, 20, 15, 18);
 
-		characters [5] = new Character (null, gordonSp, "Gordon", 10, 12, 20, 15);
+		characters [5] = new Character (null, gordonSp, "Gordon", 10, 12, 20, 15, 13);
 
 		GameManager.manager.MakeTheTeam ();
 	}
