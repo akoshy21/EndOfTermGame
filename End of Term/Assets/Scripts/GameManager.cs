@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+	// called in InitScript
 	public void MakeTheTeam()
 	{
 		team = new Character[4];
