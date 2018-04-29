@@ -36,7 +36,7 @@ public class CharacterSwitch : MonoBehaviour {
 	public Button b4;
 
 	// which char to swap, corresponds to team index
-	public int charToSwap = 0;
+	public int charToSwap;
 
 	// Use this for initialization
 	void Start () {
