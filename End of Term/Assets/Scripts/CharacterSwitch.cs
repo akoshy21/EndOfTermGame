@@ -62,9 +62,8 @@ public class CharacterSwitch : MonoBehaviour {
 
 	string FillDescription(int attack, int defense, int specialA, int specialD)
 	{
-		// return this string to fill in character stats
-		return "Attack: " + attack + "\nDefense: " + defense + "\nSpecial Attack: " + specialA + "\nSpecial Defense: " + specialD;
-		Debug.Log ("Filled");
+        // return this string to fill in character stats
+        return "Attack: " + attack + "\nDefense: " + defense + "\nSpecial Attack: " + specialA + "\nSpecial Defense: " + specialD;
 	}
 
 	void SelectedHeroes(){
@@ -79,7 +78,7 @@ public class CharacterSwitch : MonoBehaviour {
         }
 
         for (int i = 0; i < 4; i++) {
-			Debug.Log (i);
+			// Debug.Log (i);
 
 			// if either of the active duo members is equal to the team member at index 'i', mark the button text for that member as selected.
 			if (GameManager.manager.activeDuo [0] == GameManager.manager.team [i] || GameManager.manager.activeDuo [1] == GameManager.manager.team [i]) {
@@ -106,7 +105,6 @@ public class CharacterSwitch : MonoBehaviour {
 			else
 			{
 				// if the active duo is not equal to team member i then do this
-				Debug.Log ("checKed");
 				if (i == 0) {
 					// deactivate red box
 					selected1.gameObject.SetActive (false);

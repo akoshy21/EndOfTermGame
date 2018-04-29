@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour {
 	public Character[] activeDuo;
 	public Character[] enemies;
 
+    // debug shit
+    int help;
+    public bool end = false;
+
     void Awake () {
         GameManagerSetup();
 	}
@@ -42,7 +46,11 @@ public class GameManager : MonoBehaviour {
         PanelManager();
         LightChange();
 
-        // Debug.Log(activeDuo[0].characterName);
+		SetupSprites ();
+
+        EndTurn();
+
+        Debug.Log(help);
 	}
 
     void GameManagerSetup()
@@ -127,6 +135,24 @@ public class GameManager : MonoBehaviour {
                 return;
             default:
                 return;
+        }
+    }
+
+    public void EndTurn()
+    {
+        if (end == true)
+        {
+            help++;
+
+            if (curTurn == CurrentTurn.ActiveDuo1)
+            {
+                curTurn = CurrentTurn.Enemy0;
+            }
+            if (curTurn == CurrentTurn.ActiveDuo0)
+            {
+                curTurn = CurrentTurn.ActiveDuo1;
+            }
+            end = false;
         }
     }
 }
