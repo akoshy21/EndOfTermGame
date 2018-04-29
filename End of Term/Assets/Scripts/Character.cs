@@ -36,6 +36,7 @@ public class Character {
 		portrait = p;
 		charSprite = cs;
 
+
 		maxHealth = (defense*spDefense)/10;
 		maxMP = (attack*spAttack)/10;
 	}
