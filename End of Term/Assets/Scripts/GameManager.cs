@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour {
     public enum TurnState { Menu, Attacks, CharacterSwap, Stats }
     public TurnState turnstate;
 
+    public enum CurrentTurn { ActiveDuo0, ActiveDuo1, Enemy0, Enemy1, Enemy2}
+    public CurrentTurn curTurn;
+
     public GameObject CharacterSwapPanel;
 
 	public Character[] team;
@@ -22,12 +25,13 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         turnstate = TurnState.Menu;
+        curTurn = CurrentTurn.ActiveDuo0;
     }
 
 
     void Update () {
         PanelManager();
-        // Debug.Log(turnstate);
+        Debug.Log(activeDuo[0].characterName);
 	}
 
     void GameManagerSetup()

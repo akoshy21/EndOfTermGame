@@ -30,7 +30,7 @@ public class CharacterSwitch : MonoBehaviour {
 	public Button b3;
 	public Button b4;
 
-	public int charToSwap = 0;
+	public int charToSwap;
 
 	// Use this for initialization
 	void Start () {
@@ -50,8 +50,7 @@ public class CharacterSwitch : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		SelectedHeroes ();
-
-	}
+    }
 
 	string FillDescription(int attack, int defense, int specialA, int specialD)
 	{
@@ -60,10 +59,15 @@ public class CharacterSwitch : MonoBehaviour {
 	}
 
 	void SelectedHeroes(){
-		for (int i = 0; i < 4; i++) {
+
+        if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
+            charToSwap = 0;
+        if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
+            charToSwap = 1;
+
+        for (int i = 0; i < 4; i++) {
 			Debug.Log (i);
 			if (GameManager.manager.activeDuo [0] == GameManager.manager.team [i] || GameManager.manager.activeDuo [1] == GameManager.manager.team [i]) {
-				Debug.Log ("checK");
 				if (i == 0) {
 					selected1.gameObject.SetActive (true);
 					b1.GetComponentInChildren<Text> ().text = "SELECTED";
@@ -84,7 +88,6 @@ public class CharacterSwitch : MonoBehaviour {
 			}
 			else
 			{
-				Debug.Log ("checKed");
 				if (i == 0) {
 					selected1.gameObject.SetActive (false);
 					b1.GetComponentInChildren<Text> ().text = "deselected";
@@ -101,8 +104,7 @@ public class CharacterSwitch : MonoBehaviour {
 					selected4.gameObject.SetActive (false);
 					b4.GetComponentInChildren<Text> ().text = "deselected";
 				}
-
 			}
-		}
-	}
+		}       
+    }
 }
