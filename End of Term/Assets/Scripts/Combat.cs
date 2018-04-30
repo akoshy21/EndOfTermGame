@@ -69,7 +69,7 @@ public class Combat : MonoBehaviour {
 	public void TargetPeople(Move cm)
 	{
 		cm = currentMove;
-		if(
+		//if(
 	}
 
 	public void ActivateMove()

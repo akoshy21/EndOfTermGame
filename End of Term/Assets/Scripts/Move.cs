@@ -15,6 +15,8 @@ public class Move {
 
 	public int speed;
 
+	public bool[] target = new bool[3];
+
 	// possible animation set here.
 	// possible voice line
 
