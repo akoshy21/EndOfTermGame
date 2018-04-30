@@ -23,6 +23,7 @@ public class InitScript : MonoBehaviour {
 	public Sprite gordonSp;
 
 	public Character[] characters;
+	public Modifiers[] modifiers;
 
 	// Use this for initialization
 	void Awake () {
@@ -31,6 +32,11 @@ public class InitScript : MonoBehaviour {
 			roster = this;
 		}
 
+		MakeCharacters ();
+	}
+	
+	void MakeCharacters()
+	{
 		// create character array
 		characters = new Character[6];
 
@@ -65,7 +71,7 @@ public class InitScript : MonoBehaviour {
 		characters [4].moveSet [1] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
 		characters [4].moveSet [2] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
 		characters [4].moveSet [3] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
-	
+
 		characters [5] = new Character (null, gordonSp, "Gordon", 10, 12, 20, 15, 13);
 		characters [5].moveSet [0] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
 		characters [5].moveSet [1] = new Move ("Multi-Heal", "blah blah", 2, false, 3, 3, characters[0].speed);
@@ -74,14 +80,11 @@ public class InitScript : MonoBehaviour {
 
 		GameManager.manager.MakeTheTeam ();
 	}
-	
-	// Update is called once per frame
-	void Start () {
-		
-	}
 
-		
-	void Update()
+	void MakeMods()
 	{
+		modifiers = new Modifiers[20];
+
+		modifiers[0] = new Modifiers(false, false);
 	}
 }

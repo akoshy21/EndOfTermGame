@@ -26,6 +26,8 @@ public class Character {
 
 	public Move[] moveSet = new Move[4];
 
+	public Modifiers[] mods = new Modifiers[10];
+
 	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0, int s = 10)
 	{
 		attack = a;
