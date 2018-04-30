@@ -21,7 +21,10 @@ public class Combat : MonoBehaviour {
 	public Character[] combatOrder;
 	public SortStuff speedSort;
 
-	public GameObject bP0, bP1, bE0, bE1, bE2;
+	public int target = 0;
+
+	public Button bP0, bP1, bE0, bE1, bE2;
+	public int buttonNum;
 
 	// Use this for initialization
 	void Awake () {
@@ -35,6 +38,12 @@ public class Combat : MonoBehaviour {
 		combatOrder = new Character[5];
 		speedSort = new SortStuff();
 
+		bP0.onClick.AddListener(TargetPeople);
+		bP1.onClick.AddListener(TargetPeople);
+		bE0.onClick.AddListener(TargetPeople);
+		bE1.onClick.AddListener(TargetPeople);
+		bE2.onClick.AddListener(TargetPeople);
+
 		SortSpeeds();
 	}
 
@@ -45,6 +54,8 @@ public class Combat : MonoBehaviour {
 
 	public void AddMoves(int moveClicked)
 	{
+		target = 0;
+
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.ActiveDuo0:
 			selectedMoveP0 = GameManager.manager.activeDuo [0].moveSet [moveClicked - 1];
@@ -66,16 +77,40 @@ public class Combat : MonoBehaviour {
 		}
 	}
 
-	public void TargetPeople(Move cm)
+	public void TargetPeople()
 	{
-		cm = currentMove;
-		//if(
+		target++;
+
+		switch (buttonNum) {
+		case 1:
+			
+			return;
+		default:
+			return;
+		}
 	}
 
 	public void ActivateMove()
 	{
 		// come up with code to do the highlighting and stuff
 		// add code to select enemies / teammates for move effects
+	}
+
+	public void ActivateTargeting()
+	{
+		if (currentMove.isAttack) {
+			bP0.gameObject.SetActive (false);
+			bP1.gameObject.SetActive (false);
+			bE0.gameObject.SetActive (true);
+			bE1.gameObject.SetActive (true);
+			bE2.gameObject.SetActive (true);
+		} else if (currentMove.isAttack == false) {
+			bP0.gameObject.SetActive (true);
+			bP1.gameObject.SetActive (true);
+			bE0.gameObject.SetActive (false);
+			bE1.gameObject.SetActive (false);
+			bE2.gameObject.SetActive (false);
+		}
 	}
 
 	public void MoveResults()

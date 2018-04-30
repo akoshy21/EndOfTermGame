@@ -164,6 +164,7 @@ public class GameManager : MonoBehaviour {
 			return;
 		case TurnState.Target:
 			targeting.gameObject.SetActive (true);
+			Combat.combat.ActivateTargeting ();
 			return;
 		default:
 			return;
