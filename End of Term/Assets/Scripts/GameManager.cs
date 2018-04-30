@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour {
 
         EndTurn();
 
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Combat.combat.SortSpeeds();
+
+		}
+
         // Debug.Log(help);
 	}
 

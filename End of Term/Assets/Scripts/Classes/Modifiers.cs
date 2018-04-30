@@ -12,7 +12,9 @@ public class Modifiers {
 	public bool stunned;
 	public bool shielded;
 
-	public Modifiers(bool stun, bool shieldBool, int shieldInt = 0, int damage = 0, int speed = 0)
+	public string modDesc;
+
+	public Modifiers(bool stun, bool shieldBool, int shieldInt = 0, int damage = 0, int speed = 0, string description = null)
 	{
 		speedMod = speed;
 		damageMod = damage;
@@ -21,5 +23,8 @@ public class Modifiers {
 
 		stunned = stun;
 		shielded = shieldBool;
+	
+		modDesc = description;
 	}
+
 }

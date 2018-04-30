@@ -43,8 +43,6 @@ public class Combat : MonoBehaviour {
 		bE0.onClick.AddListener(TargetPeople);
 		bE1.onClick.AddListener(TargetPeople);
 		bE2.onClick.AddListener(TargetPeople);
-
-		SortSpeeds();
 	}
 
 	void TestMove(int clicked)
@@ -98,7 +96,8 @@ public class Combat : MonoBehaviour {
 
 	public void ActivateTargeting()
 	{
-		if (currentMove.isAttack) {
+		Debug.Log (currentMove.isAttack);
+		if (currentMove.isAttack == true) {
 			bP0.gameObject.SetActive (false);
 			bP1.gameObject.SetActive (false);
 			bE0.gameObject.SetActive (true);

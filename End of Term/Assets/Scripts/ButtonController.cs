@@ -138,7 +138,7 @@ public class ButtonController : MonoBehaviour {
 				GameManager.manager.turnstate = GameManager.TurnState.Menu;
 			}
 			else {
-				Combat.combat.currentMove = GameManager.manager.activeDuo [GameManager.manager.activePlayer].moveSet [button];
+				Combat.combat.currentMove = GameManager.manager.activeDuo [GameManager.manager.activePlayer].moveSet [button-1];
 				Combat.combat.AddMoves (button);
 				GameManager.manager.turnstate = GameManager.TurnState.Target;
 			}
