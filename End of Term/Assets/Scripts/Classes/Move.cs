@@ -14,16 +14,18 @@ public class Move {
 	public string description;
 	public string name;
 
-	public int speed;
+	public Character[] target = new Character[3];
 
-	public bool[] target = new bool[3];
+	public int effectIndex;
+
+	public Character caster;
 
 	// possible animation set here.
 	// possible voice line
 
 	// make spells range of damage/heal
 
-	public Move(string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, int s = 10, int effectIndex = 0)
+	public Move(string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, Character cast, int eI = 1)
 	{
 		name = attackName;
 		targetCount = targetNum;
@@ -31,8 +33,10 @@ public class Move {
 		power = pow;
 		cost = manaCost;
 		description = desc;
-		speed = s;
+		caster = cast;
 
 		isPhysical = isPhys;
+
+		effectIndex = eI;
 	}
 }

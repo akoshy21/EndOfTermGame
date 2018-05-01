@@ -21,6 +21,10 @@ public class Character {
 
 	public int speed;
 
+	public int RID;
+
+	public bool isEnemy;
+
 	public Sprite portrait;
 	public Sprite charSprite;
 
@@ -28,7 +32,7 @@ public class Character {
 
 	public Modifiers mods = new Modifiers (false, false, 0, 0, 0);
 
-	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0, int s = 10)
+	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0, int s = 10, bool isEn = false)
 	{
 		attack = a;
 		defense = d;
@@ -46,5 +50,36 @@ public class Character {
 		currentHealth = maxHealth;
 		maxMP = (attack*spAttack)/10;
 		currentMP = maxMP;
+
+		isEnemy = isEn;
+
+		RID = GameManager.manager.charID;
+		GameManager.manager.charID++;
+	}
+
+	public Character(Character copy)
+	{
+
+		attack = copy.attack;
+		defense = copy.defense;
+		spAttack = copy.spAttack;
+		spDefense = copy.spDefense;
+
+		characterName = copy.characterName;
+
+		portrait = copy.portrait;
+		charSprite = copy.charSprite;
+
+		speed = copy.speed;
+
+		maxHealth = copy.maxHealth;
+		currentHealth = copy.maxHealth;
+		maxMP = copy.currentMP;
+		currentMP = copy.maxMP;
+
+		isEnemy = copy.isEnemy;
+
+		RID = GameManager.manager.charID;
+		GameManager.manager.charID++;
 	}
 }

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager manager;
 
+	public int charID;
+
     public enum TurnState { Menu, Attacks, CharacterSwap, Stats, Target }
     public TurnState turnstate;
 
@@ -94,13 +96,13 @@ public class GameManager : MonoBehaviour {
 		team [3] = InitScript.roster.characters [3];
 
 		activeDuo = new Character[2];
-		activeDuo[0] = team [0];
-		activeDuo[1] = team [1];
+		activeDuo[0] = team [2];
+		activeDuo[1] = team [3];
 
 		enemies = new Character[3];
 		enemies [0] = InitScript.roster.characters [5];
 		enemies [1] = InitScript.roster.characters [4];
-		enemies [2] = InitScript.roster.characters [5];
+		enemies [2] = new Character(InitScript.roster.characters [5]);
 	}
 
 	void SetupSprites()
@@ -140,9 +142,11 @@ public class GameManager : MonoBehaviour {
                 enemy1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
                 enemy2.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
                 return;
-		case CurrentTurn.ExecuteMoves:
-			enemy2.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
-			Combat.combat.MoveResults ();
+			case CurrentTurn.ExecuteMoves:
+				enemy2.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
+				Combat.combat.MoveResults ();
+				curTurn = CurrentTurn.ActiveDuo0;
+				return;
 			default:	
                 return;
         }

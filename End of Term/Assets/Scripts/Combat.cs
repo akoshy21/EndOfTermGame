@@ -6,11 +6,8 @@ using System;
 
 public class Combat : MonoBehaviour {
 
-	public Move selectedMoveP0;
-	public Move selectedMoveP1;
-	public Move selectedMoveE0;
-	public Move selectedMoveE1;
-	public Move selectedMoveE2;
+
+	public Move[] selectedMove;
 
 	public Move currentMove;
 
@@ -20,6 +17,7 @@ public class Combat : MonoBehaviour {
 
 	public Character[] combatOrder;
 	public SortStuff speedSort;
+	public SortMoves sortM;
 
 	public int target = 0;
 
@@ -31,12 +29,20 @@ public class Combat : MonoBehaviour {
 		if (combat == null) {
 			combat = this;
 		}
+
 	}
 
 	void Start()
 	{
 		combatOrder = new Character[5];
+		selectedMove = new Move[5];
+
+		sortM = new SortMoves ();
 		speedSort = new SortStuff();
+
+		for (int i = 0; i < 5; i++) {
+			selectedMove [i] = new Move ("", "", 0, false, 0, 0, false, InitScript.roster.characters [0]);
+		}
 
 		bP0.onClick.AddListener (delegate{TargetPeople(0, bP0);});
 		bP1.onClick.AddListener (delegate{TargetPeople(1, bP1);});
@@ -49,39 +55,39 @@ public class Combat : MonoBehaviour {
 	{
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.ActiveDuo0:
-			selectedMoveP0 = GameManager.manager.activeDuo [0].moveSet [moveClicked - 1];
+			selectedMove[0] = GameManager.manager.activeDuo [0].moveSet [moveClicked - 1];
 			if (Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) {
-				selectedMoveP0.target [0] = true;
-				selectedMoveP0.target [1] = true;
+				selectedMove[0].target [0] = GameManager.manager.activeDuo[0];
+				selectedMove[0].target [1] = GameManager.manager.activeDuo[1];
 
 			}
 			else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true) {
-				selectedMoveP0.target [0] = true;
-				selectedMoveP0.target [1] = true;
-				selectedMoveP0.target [2] = true;
+				selectedMove[0].target [0] = GameManager.manager.enemies[0];
+				selectedMove[0].target [1] = GameManager.manager.enemies[1];
+				selectedMove[0].target [2] = GameManager.manager.enemies[2];
 
 			}
 			return;
 		case GameManager.CurrentTurn.ActiveDuo1:
-			selectedMoveP1 = GameManager.manager.activeDuo [1].moveSet [moveClicked - 1];
+			selectedMove [1] = GameManager.manager.activeDuo [1].moveSet [moveClicked - 1];
 			if (Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) {
-				selectedMoveP1.target [0] = true;
-				selectedMoveP1.target [1] = true;
+				selectedMove[1].target [0] = GameManager.manager.activeDuo[0];
+				selectedMove[1].target [1] = GameManager.manager.activeDuo[1];
 				}
 			else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true) {
-				selectedMoveP1.target [0] = true;
-				selectedMoveP1.target [1] = true;
-				selectedMoveP1.target [2] = true;
+				selectedMove[1].target [0] = GameManager.manager.enemies[0];
+				selectedMove[1].target [1] = GameManager.manager.enemies[1];
+				selectedMove[1].target [2] = GameManager.manager.enemies[2];
 				}
 			return;
 		case GameManager.CurrentTurn.Enemy0:
-			selectedMoveE0 = GameManager.manager.enemies [0].moveSet [moveClicked - 1];
+			selectedMove[2] = GameManager.manager.enemies [0].moveSet [moveClicked - 1];
 			return;
 		case GameManager.CurrentTurn.Enemy1:
-			selectedMoveE1 = GameManager.manager.enemies [1].moveSet [moveClicked - 1];
+			selectedMove[3] = GameManager.manager.enemies [1].moveSet [moveClicked - 1];
 			return;
 		case GameManager.CurrentTurn.Enemy2:
-			selectedMoveE2 = GameManager.manager.enemies [2].moveSet [moveClicked - 1];
+			selectedMove[4] = GameManager.manager.enemies [2].moveSet [moveClicked - 1];
 			return;
 		default:
 			return;
@@ -94,11 +100,17 @@ public class Combat : MonoBehaviour {
 
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.ActiveDuo0:
-			selectedMoveP0.target [bNum] = true;
+			if (selectedMove [0].isAttack) {
+				selectedMove [0].target [target-1] = GameManager.manager.enemies [bNum];
+				Debug.Log (target);
+			}
 			bt.interactable = false;
 			break;
 		case GameManager.CurrentTurn.ActiveDuo1:
-			selectedMoveP1.target [bNum] = true;
+			if (selectedMove [1].isAttack) {
+				selectedMove [1].target [target-1] = GameManager.manager.enemies [bNum];
+			}
+			Debug.Log (selectedMove [1].target [target-1].characterName);
 			bt.interactable = false;
 			break;
 		default:
@@ -129,7 +141,7 @@ public class Combat : MonoBehaviour {
 
 	public void ActivateTargeting()
 	{
-		Debug.Log (currentMove.isAttack);
+		//Debug.Log (currentMove.isAttack);
 		if (currentMove.isAttack == true) {
 			bP0.gameObject.SetActive (false);
 			bP1.gameObject.SetActive (false);
@@ -158,16 +170,51 @@ public class Combat : MonoBehaviour {
 
 	public void MoveResults()
 	{
+		SortMoveSpeeds();
 
-			// do healing here to selected teammate (self, or other, or both)
+		for(int i = 0; i < 5; i++)
+		{
+			if (selectedMove [i].isAttack) {
+				if (selectedMove [i].isPhysical) {
+					for (int j = 0; j < selectedMove [i].targetCount; j++) {
+						// rilee fix the math
+						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
+						Debug.Log (selectedMove [i].target [j].currentHealth);
+						UpdateCharStatus (selectedMove [i].target [j]);
+						Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
+					}
+				} else if (!selectedMove [i].isPhysical) {
+					for (int j = 0; j < selectedMove [i].targetCount; j++) {
+						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 4);
+						UpdateCharStatus (selectedMove [i].target [j]);
+					}
+				}
+			} else if (selectedMove [i].effectIndex != 0 && selectedMove[i].isAttack == false) {
+				for (int j = 0; j < selectedMove [i].targetCount; j++) {
+					selectedMove [i].target [j].currentHealth += selectedMove [i].caster.spAttack * (selectedMove [i].power / 100);
+				}
+			}
+		}
 	}
 
-	public void HealOrHurt()
+	public void UpdateCharStatus(Character c)
 	{
-		//		damage = ((GameManager.manager.activeDuo [GameManager.manager.activePlayer].attack * selectedMove.power) / (target.defense * 4)) * damageMultiplier;
+		if (c.isEnemy == true) {
+			for (int i = 0; i < 3; i++) {
+				if (c.RID == GameManager.manager.enemies [i].RID) {
+					GameManager.manager.enemies [i] = c;
+				}
+			}
+		} else {
+			for (int i = 0; i < 2; i++) {
+				if (c.RID == GameManager.manager.activeDuo [i].RID) {
+					GameManager.manager.activeDuo [i] = c;
+				}
+			}
+		}
 	}
 
-	public void SortSpeeds()
+	public void SortCharSpeeds()
 	{
 		combatOrder [0] = GameManager.manager.activeDuo [0];
 		combatOrder [1] = GameManager.manager.activeDuo [1];
@@ -177,10 +224,19 @@ public class Combat : MonoBehaviour {
 
 		Array.Sort (combatOrder, speedSort);
 
-		for(int j = 0; j < combatOrder.Length; j++)
-		{
-			Debug.Log(combatOrder[j].characterName + " " + combatOrder[j].speed + " " + j);
-		}
+//		for(int j = 0; j < combatOrder.Length; j++)
+//		{
+//			Debug.Log(combatOrder[j].characterName + " " + combatOrder[j].speed + " " + j);
+//		}
 	}
 
+	public void SortMoveSpeeds()
+	{
+		Array.Sort (selectedMove, sortM);
+
+//		for(int k = 0; k < selectedMove.Length; k++)
+//		{
+//			Debug.Log(selectedMove[k].description);
+//		}
+	}
 }
