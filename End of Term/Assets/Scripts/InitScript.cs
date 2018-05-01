@@ -48,34 +48,34 @@ public class InitScript : MonoBehaviour {
 		characters [0].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
 
 		characters [1] = new Character (cindy, cindySp, "Cindy", 13, 17, 10, 17, 10);
-		characters [0].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
-		characters [0].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
-		characters [0].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
-		characters [0].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
+		characters [1].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
+		characters [1].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
+		characters [1].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
+		characters [1].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
 
 		characters [2] = new Character (luke, lukeSp, "Luke", 18, 13, 12, 10, 17);
-		characters [0].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
-		characters [0].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
-		characters [0].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
-		characters [0].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
+		characters [2].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
+		characters [2].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
+		characters [2].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
+		characters [2].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
 
 		characters [3] = new Character (rilee, rileeSp, "Rilee", 14, 12, 18, 15, 14);
-		characters [0].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
-		characters [0].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
-		characters [0].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
-		characters [0].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
+		characters [3].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
+		characters [3].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
+		characters [3].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
+		characters [3].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
 
 		characters [4] = new Character (null, burgessSp, "Burgess", 10, 12, 20, 15, 18);
-		characters [0].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
-		characters [0].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
-		characters [0].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
-		characters [0].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
+		characters [4].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
+		characters [4].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
+		characters [4].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
+		characters [4].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
 
 		characters [5] = new Character (null, gordonSp, "Gordon", 10, 12, 20, 15, 13);
-		characters [0].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
-		characters [0].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
-		characters [0].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
-		characters [0].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
+		characters [5].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 40, 0, true, characters [0].speed, 0);
+		characters [5].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0].speed, 0);
+		characters [5].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters[0].speed, 1);
+		characters [5].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0].speed, 2);
 
 		GameManager.manager.MakeTheTeam ();
 	}

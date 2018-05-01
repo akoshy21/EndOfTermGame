@@ -38,11 +38,11 @@ public class Combat : MonoBehaviour {
 		combatOrder = new Character[5];
 		speedSort = new SortStuff();
 
-		bP0.onClick.AddListener(TargetPeople);
-		bP1.onClick.AddListener(TargetPeople);
-		bE0.onClick.AddListener(TargetPeople);
-		bE1.onClick.AddListener(TargetPeople);
-		bE2.onClick.AddListener(TargetPeople);
+		bP0.onClick.AddListener (delegate{TargetPeople(0, bP0);});
+		bP1.onClick.AddListener (delegate{TargetPeople(1, bP1);});
+		bE0.onClick.AddListener (delegate{TargetPeople(0, bE0);});
+		bE1.onClick.AddListener (delegate{TargetPeople(1, bE1);});
+		bE2.onClick.AddListener (delegate{TargetPeople(2, bE2);});
 	}
 
 	void TestMove(int clicked)
@@ -52,14 +52,32 @@ public class Combat : MonoBehaviour {
 
 	public void AddMoves(int moveClicked)
 	{
-		target = 0;
-
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.ActiveDuo0:
 			selectedMoveP0 = GameManager.manager.activeDuo [0].moveSet [moveClicked - 1];
+			if (Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) {
+				selectedMoveP0.target [0] = true;
+				selectedMoveP0.target [1] = true;
+
+			}
+			else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true) {
+				selectedMoveP0.target [0] = true;
+				selectedMoveP0.target [1] = true;
+				selectedMoveP0.target [2] = true;
+
+			}
 			return;
 		case GameManager.CurrentTurn.ActiveDuo1:
 			selectedMoveP1 = GameManager.manager.activeDuo [1].moveSet [moveClicked - 1];
+			if (Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) {
+				selectedMoveP1.target [0] = true;
+				selectedMoveP1.target [1] = true;
+				}
+			else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true) {
+				selectedMoveP1.target [0] = true;
+				selectedMoveP1.target [1] = true;
+				selectedMoveP1.target [2] = true;
+				}
 			return;
 		case GameManager.CurrentTurn.Enemy0:
 			selectedMoveE0 = GameManager.manager.enemies [0].moveSet [moveClicked - 1];
@@ -75,16 +93,36 @@ public class Combat : MonoBehaviour {
 		}
 	}
 
-	public void TargetPeople()
+	public void TargetPeople(int bNum, Button bt)
 	{
 		target++;
 
-		switch (buttonNum) {
-		case 1:
-			
-			return;
+		switch (GameManager.manager.curTurn) {
+		case GameManager.CurrentTurn.ActiveDuo0:
+			selectedMoveP0.target [bNum] = true;
+			bt.interactable = false;
+			break;
+		case GameManager.CurrentTurn.ActiveDuo1:
+			selectedMoveP1.target [bNum] = true;
+			bt.interactable = false;
+			break;
 		default:
-			return;
+			break;
+		}
+
+		if (target == currentMove.targetCount) {
+			switch (GameManager.manager.curTurn) {
+			case GameManager.CurrentTurn.ActiveDuo0:
+				GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
+				ResetState ();
+				return;
+			case GameManager.CurrentTurn.ActiveDuo1:
+				GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
+				ResetState ();
+				return;
+			default:
+				return;
+			}
 		}
 	}
 
@@ -103,13 +141,24 @@ public class Combat : MonoBehaviour {
 			bE0.gameObject.SetActive (true);
 			bE1.gameObject.SetActive (true);
 			bE2.gameObject.SetActive (true);
+			bE0.interactable = true;
+			bE1.interactable = true;
+			bE2.interactable = true;
 		} else if (currentMove.isAttack == false) {
 			bP0.gameObject.SetActive (true);
 			bP1.gameObject.SetActive (true);
+			bP0.interactable = true;
+			bP1.interactable = true;
 			bE0.gameObject.SetActive (false);
 			bE1.gameObject.SetActive (false);
 			bE2.gameObject.SetActive (false);
 		}
+	}
+
+	public void ResetState()
+	{
+		target = 0;
+		GameManager.manager.turnstate = GameManager.TurnState.Menu;
 	}
 
 	public void MoveResults()

@@ -140,7 +140,22 @@ public class ButtonController : MonoBehaviour {
 			else {
 				Combat.combat.currentMove = GameManager.manager.activeDuo [GameManager.manager.activePlayer].moveSet [button-1];
 				Combat.combat.AddMoves (button);
-				GameManager.manager.turnstate = GameManager.TurnState.Target;
+				if (Combat.combat.currentMove.targetCount != 2) {
+					GameManager.manager.turnstate = GameManager.TurnState.Target;
+				} else if (Combat.combat.currentMove.targetCount == 2) {
+					switch (GameManager.manager.curTurn) {
+					case GameManager.CurrentTurn.ActiveDuo0:
+						GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
+						Combat.combat.ResetState ();
+						break;
+					case GameManager.CurrentTurn.ActiveDuo1:
+						GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
+						Combat.combat.ResetState ();
+						break;
+					default:
+						break;
+					}
+				}
 			}
 			Debug.Log ("CLICK");
 			return;
