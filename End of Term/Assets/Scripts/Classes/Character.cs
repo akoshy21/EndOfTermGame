@@ -43,6 +43,8 @@ public class Character {
 		speed = s;
 
 		maxHealth = (defense*spDefense)/10;
+		currentHealth = maxHealth;
 		maxMP = (attack*spAttack)/10;
+		currentMP = maxMP;
 	}
 }

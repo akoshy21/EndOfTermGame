@@ -25,6 +25,12 @@ public class CharacterSwapButton : MonoBehaviour
     void SwapCharacter()
     {
         GameManager.manager.end = true;
+		for(int i = 0; i < 4; i++)
+		{
+			if (GameManager.manager.activeDuo[GameManager.manager.activePlayer].characterName == GameManager.manager.team[i].characterName) {
+				GameManager.manager.team[i] = GameManager.manager.activeDuo[GameManager.manager.activePlayer];
+			}
+		}
 
      switch (bNum)
         {
