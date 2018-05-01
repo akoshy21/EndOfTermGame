@@ -10,6 +10,7 @@ public class Move {
 
 	public bool isAttack;
 	public bool isPhysical;
+	public bool isBuff;
 
 	public string description;
 	public string name;
@@ -25,7 +26,7 @@ public class Move {
 
 	// make spells range of damage/heal
 
-	public Move(string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, Character cast, int eI = 1)
+	public Move(string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, Character cast, int eI = 1, bool buff = false)
 	{
 		name = attackName;
 		targetCount = targetNum;
@@ -38,5 +39,7 @@ public class Move {
 		isPhysical = isPhys;
 
 		effectIndex = eI;
+
+		isBuff = buff;
 	}
 }

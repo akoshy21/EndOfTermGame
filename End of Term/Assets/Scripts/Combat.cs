@@ -101,16 +101,20 @@ public class Combat : MonoBehaviour {
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.ActiveDuo0:
 			if (selectedMove [0].isAttack) {
-				selectedMove [0].target [target-1] = GameManager.manager.enemies [bNum];
+				selectedMove [0].target [target - 1] = GameManager.manager.enemies [bNum];
 				Debug.Log (target);
+			} else if (!selectedMove [0].isAttack) {
+				selectedMove [0].target [target - 1] = GameManager.manager.activeDuo [bNum];
 			}
 			bt.interactable = false;
 			break;
 		case GameManager.CurrentTurn.ActiveDuo1:
 			if (selectedMove [1].isAttack) {
 				selectedMove [1].target [target-1] = GameManager.manager.enemies [bNum];
+			} else if (!selectedMove [1].isAttack) {
+				selectedMove [1].target [target - 1] = GameManager.manager.activeDuo [bNum];
 			}
-			Debug.Log (selectedMove [1].target [target-1].characterName);
+			// Debug.Log (selectedMove [1].target [target-1].characterName);
 			bt.interactable = false;
 			break;
 		default:
@@ -189,9 +193,13 @@ public class Combat : MonoBehaviour {
 						UpdateCharStatus (selectedMove [i].target [j]);
 					}
 				}
-			} else if (selectedMove [i].effectIndex != 0 && selectedMove[i].isAttack == false) {
+			} else if (selectedMove [i].effectIndex != 0 && selectedMove[i].isAttack == false && selectedMove[i].isBuff == false) {
 				for (int j = 0; j < selectedMove [i].targetCount; j++) {
+					Debug.Log ("HI " + selectedMove[i].target[j].characterName);
 					selectedMove [i].target [j].currentHealth += selectedMove [i].caster.spAttack * (selectedMove [i].power / 100);
+					if (selectedMove [i].target [j].currentHealth >= selectedMove [i].target [j].maxHealth) {
+						selectedMove [i].target [j].currentHealth = selectedMove [i].target [j].maxHealth;
+					}
 				}
 			}
 		}
