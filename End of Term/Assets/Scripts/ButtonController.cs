@@ -107,7 +107,6 @@ public class ButtonController : MonoBehaviour {
 			        if (GameManager.manager.turnstate == GameManager.TurnState.Attacks || GameManager.manager.turnstate == GameManager.TurnState.CharacterSwap || GameManager.manager.turnstate == GameManager.TurnState.Stats)
 		        {
 		            ButtonActivate(true);
-		            but.GetComponentInChildren<Text>().text = "Back";
 		        }
 		        return;
 		    default:
@@ -181,7 +180,9 @@ public class ButtonController : MonoBehaviour {
 
     void ButtonActivate(bool active)
     {
-        but.gameObject.GetComponentInChildren<Text>().enabled = active;
+		if (button != 5) {
+			but.gameObject.GetComponentInChildren<Text> ().enabled = active;
+		}
         but.gameObject.GetComponent<Image>().enabled = active;
         but.gameObject.GetComponent<Button>().enabled = active;
     }

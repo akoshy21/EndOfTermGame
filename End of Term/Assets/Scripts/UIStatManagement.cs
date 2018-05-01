@@ -24,9 +24,15 @@ public class UIStatManagement : MonoBehaviour {
 	public Image e2healthFill;
 	public Image e2manaFill;
 
+	public Text aD1;
+	public Text aD0;
+
 	void Update()
 	{
 		UpdateFills ();
+		aD0.text = GameManager.manager.activeDuo [0].characterName.ToUpper();
+		aD1.text = GameManager.manager.activeDuo [1].characterName.ToUpper();
+
 		//
 	
 		if (Input.GetKeyDown (KeyCode.Space)) {
