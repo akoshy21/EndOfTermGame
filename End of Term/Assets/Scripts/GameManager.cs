@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     public enum TurnState { Menu, Attacks, CharacterSwap, Stats, Target }
     public TurnState turnstate;
 
-    public enum CurrentTurn { ActiveDuo0, ActiveDuo1, Enemy0, Enemy1, Enemy2}
+    public enum CurrentTurn { ActiveDuo0, ActiveDuo1, Enemy0, Enemy1, Enemy2, ExecuteMoves}
     public CurrentTurn curTurn;
 
     public GameObject CharacterSwapPanel;
@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour {
         switch (curTurn)
         {
             case CurrentTurn.ActiveDuo0:
-                enemy2.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
                 active0.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
                 return;
 			case CurrentTurn.ActiveDuo1:
@@ -141,7 +140,10 @@ public class GameManager : MonoBehaviour {
                 enemy1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
                 enemy2.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
                 return;
-            default:
+		case CurrentTurn.ExecuteMoves:
+			enemy2.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
+			Combat.combat.MoveResults ();
+			default:	
                 return;
         }
     }

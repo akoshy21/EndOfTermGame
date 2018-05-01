@@ -45,11 +45,6 @@ public class Combat : MonoBehaviour {
 		bE2.onClick.AddListener (delegate{TargetPeople(2, bE2);});
 	}
 
-	void TestMove(int clicked)
-	{
-		// add similar script to whats below
-	}
-
 	public void AddMoves(int moveClicked)
 	{
 		switch (GameManager.manager.curTurn) {
