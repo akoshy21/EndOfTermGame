@@ -50,7 +50,7 @@ public class Effects : MonoBehaviour {
 			{
 				if(tar.mods[i] == effectIndex[0])
 				{
-					tar.mods[i] = effectIndex[4];
+					tar.mods[i] = effectIndex[3];
 					break;
 				}
 			}
@@ -58,10 +58,44 @@ public class Effects : MonoBehaviour {
 		case 4:
 			for(int i = 0; i < 4; i++)
 			{
+				Debug.Log ("SHIELDED, shield at " + effectIndex[4].shield);
 				if(tar.mods[i] == effectIndex[0])
 				{
 					tar.mods[i] = effectIndex[4];
-					tar.shield = tar.mods [i].shield;
+					tar.shield = effectIndex[4].shield;
+					tar.shieldMax = tar.shield;
+					tar.shielded = true;
+
+					for (int j = 0; j < 2; j++) {
+						if (tar.RID == GameManager.manager.activeDuo [j].RID) {
+							GameManager.manager.activeDuo [j] = tar;
+						}
+					}
+
+					break;
+				}
+			}
+			return;
+		case 5:
+			Combat.combat.intervene = true;
+			Combat.combat.intervener = tar;
+			return;
+		case 6:
+			for(int i = 0; i < 4; i++)
+			{
+				if(tar.mods[i] == effectIndex[0])
+				{
+					tar.mods[i] = effectIndex[6];
+					break;
+				}
+			}
+			return;
+		case 7:
+			for(int i = 0; i < 4; i++)
+			{
+				if(tar.mods[i] == effectIndex[0])
+				{
+					tar.mods[i] = effectIndex[7];
 					break;
 				}
 			}
@@ -69,5 +103,44 @@ public class Effects : MonoBehaviour {
 		default:
 			return;
 		}
+	}
+
+	public void Intervene(Character t)
+	{
+		int an;
+		
+		if (t.RID == GameManager.manager.activeDuo [0].RID) {
+			an = GameManager.manager.activeDuo [1].RID;
+		} else {
+			an = GameManager.manager.activeDuo [0].RID;
+		}
+
+		for (int i = 0; i < Combat.combat.selectedMove.Length; i++) {
+			if (Combat.combat.selectedMove [i].targetCount == 3) {
+				for (int j = 0; j < 3; j++) {
+					Debug.Log (j);
+					if (Combat.combat.selectedMove [i].target [j].RID == an) {
+						Combat.combat.selectedMove [i].target [j] = t;
+					}
+				}
+			}
+			if (Combat.combat.selectedMove [i].targetCount == 2) {
+				for (int j = 0; j < 2; j++) {
+					Debug.Log (j);
+					if (Combat.combat.selectedMove [i].target [j].RID == an) {
+						Combat.combat.selectedMove [i].target [j] = t;
+					}
+				}
+			}
+			if (Combat.combat.selectedMove [i].targetCount == 1) {
+				for (int j = 0; j < 1; j++) {
+					Debug.Log (j);
+					if (Combat.combat.selectedMove [i].target [j].RID == an) {
+						Combat.combat.selectedMove [i].target [j] = t;
+					}
+				}
+			}
+		}
+		//Combat.combat.intervene = false;
 	}
 }

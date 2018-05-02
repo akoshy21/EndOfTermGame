@@ -21,6 +21,9 @@ public class Combat : MonoBehaviour {
 
 	public int target = 0;
 
+	public bool intervene;
+	public Character intervener;
+
 	public Button bP0, bP1, bE0, bE1, bE2;
 	public int buttonNum;
 
@@ -58,6 +61,7 @@ public class Combat : MonoBehaviour {
 		for (int i = 0; i < 5; i++) {
 			//Debug.Log (selectedMove .Length);
 		}
+
 		EnemyTurns ();
 	}
 
@@ -244,6 +248,21 @@ public class Combat : MonoBehaviour {
 
 	public void MoveResults()
 	{
+
+		for (int i = 0; i < 5; i++) {
+			Effects.index.CheckEffects (selectedMove [i].effectIndex, selectedMove [i].target[0]);
+			if (selectedMove [i].targetCount >= 2) {
+				Effects.index.CheckEffects (selectedMove [i].effectIndex, selectedMove [i].target[1]);
+			}
+			if (selectedMove [i].targetCount >= 3) {
+				Effects.index.CheckEffects (selectedMove [i].effectIndex, selectedMove [i].target[2]);
+			}
+		}
+
+		if (intervene) {
+			Effects.index.Intervene (intervener);
+		}
+
 		SortMoveSpeeds();
 
 		for(int i = 0; i < 5; i++)
@@ -251,16 +270,33 @@ public class Combat : MonoBehaviour {
 			if (selectedMove [i].isAttack) {
 				if (selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
-						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
-						Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.attack * selectedMove[i].power) / (selectedMove[i].target[j].defense * 6) + " damage!");
+						if (!selectedMove [i].target [j].shielded) {
+							selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
+							Debug.Log (selectedMove [i].caster.characterName + " used " + selectedMove [i].name + " on " + selectedMove [i].target [0].characterName + " for " + (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 6) + " damage!");
+						} else {
+							int difference;
+							difference = selectedMove [i].target [j].shield -((selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4));
+							if (difference < 0) {
+								selectedMove [i].target [j].currentHealth += difference;
+							}
+							
+						}
 						UpdateCharStatus (selectedMove [i].target [j]);
 						//Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
 					}
 				} else if (!selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
-						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 4);
-                        Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.spAttack * selectedMove[i].power) / (selectedMove[i].target[j].spDefense * 6) + " damage!");
-                        UpdateCharStatus (selectedMove [i].target [j]);
+						if (!selectedMove [i].target [j].shielded) {
+							selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 4);
+							Debug.Log (selectedMove [i].caster.characterName + " used " + selectedMove [i].name + " on " + selectedMove [i].target [0].characterName + " for " + (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 6) + " damage!");
+						}
+						else {
+						int difference;
+						difference = selectedMove [i].target [j].shield -((selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4));
+						if (difference < 0) {
+							selectedMove [i].target [j].currentHealth += difference;
+						}
+						UpdateCharStatus (selectedMove [i].target [j]);
 					}
 				}
 			} else if (selectedMove [i].effectIndex == 1) {
@@ -274,6 +310,7 @@ public class Combat : MonoBehaviour {
 				}
 			}
 		}
+	}
 	}
 
 	public void UpdateCharStatus(Character c)

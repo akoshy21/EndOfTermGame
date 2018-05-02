@@ -98,8 +98,8 @@ public class GameManager : MonoBehaviour {
 		team [3] = InitScript.roster.characters [3];
 
 		activeDuo = new Character[2];
-		activeDuo[0] = team [2];
-		activeDuo[1] = team [3];
+		activeDuo[0] = team [1];
+		activeDuo[1] = team [2];
 
 		enemies = new Character[3];
 		enemies [0] = InitScript.roster.characters [5];

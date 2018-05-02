@@ -72,14 +72,14 @@ public class UIStatManagement : MonoBehaviour {
 
 		if (GameManager.manager.activeDuo [0].shield > 0) {
 			shieldP0P.gameObject.SetActive (true);
-			shieldP0.fillAmount = ((float)GameManager.manager.enemies [0].shield) / ((float)GameManager.manager.enemies [0].shieldMax);
+			shieldP0.fillAmount = ((float)GameManager.manager.activeDuo [0].shield) / ((float)GameManager.manager.activeDuo [0].shieldMax);
 		} else {
 			shieldP0P.gameObject.SetActive (false);
 		}
 
 		if (GameManager.manager.activeDuo [1].shield > 0) {
 			shieldP1P.gameObject.SetActive (true);
-			shieldP1.fillAmount = ((float)GameManager.manager.enemies [1].shield) / ((float)GameManager.manager.enemies [1].shieldMax);
+			shieldP1.fillAmount = ((float)GameManager.manager.activeDuo [1].shield) / ((float)GameManager.manager.activeDuo [1].shieldMax);
 		} else {
 			shieldP1P.gameObject.SetActive (false);
 		}
