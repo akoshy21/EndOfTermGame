@@ -55,7 +55,7 @@ public class Combat : MonoBehaviour {
 	{
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.ActiveDuo0:
-			selectedMove[0] = GameManager.manager.activeDuo [0].moveSet [moveClicked - 1];
+			selectedMove [0] = GameManager.manager.activeDuo [0].moveSet [moveClicked - 1];
 			if (Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) {
 				selectedMove[0].target [0] = GameManager.manager.activeDuo[0];
 				selectedMove[0].target [1] = GameManager.manager.activeDuo[1];
@@ -71,23 +71,13 @@ public class Combat : MonoBehaviour {
 		case GameManager.CurrentTurn.ActiveDuo1:
 			selectedMove [1] = GameManager.manager.activeDuo [1].moveSet [moveClicked - 1];
 			if (Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) {
-				selectedMove[1].target [0] = GameManager.manager.activeDuo[0];
-				selectedMove[1].target [1] = GameManager.manager.activeDuo[1];
-				}
-			else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true) {
-				selectedMove[1].target [0] = GameManager.manager.enemies[0];
-				selectedMove[1].target [1] = GameManager.manager.enemies[1];
-				selectedMove[1].target [2] = GameManager.manager.enemies[2];
-				}
-			return;
-		case GameManager.CurrentTurn.Enemy0:
-			selectedMove[2] = GameManager.manager.enemies [0].moveSet [moveClicked - 1];
-			return;
-		case GameManager.CurrentTurn.Enemy1:
-			selectedMove[3] = GameManager.manager.enemies [1].moveSet [moveClicked - 1];
-			return;
-		case GameManager.CurrentTurn.Enemy2:
-			selectedMove[4] = GameManager.manager.enemies [2].moveSet [moveClicked - 1];
+				selectedMove [1].target [0] = GameManager.manager.activeDuo [0];
+				selectedMove [1].target [1] = GameManager.manager.activeDuo [1];
+			} else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true) {
+				selectedMove [1].target [0] = GameManager.manager.enemies [0];
+				selectedMove [1].target [1] = GameManager.manager.enemies [1];
+				selectedMove [1].target [2] = GameManager.manager.enemies [2];
+			}
 			return;
 		default:
 			return;
@@ -124,10 +114,12 @@ public class Combat : MonoBehaviour {
 		if (target == currentMove.targetCount) {
 			switch (GameManager.manager.curTurn) {
 			case GameManager.CurrentTurn.ActiveDuo0:
+				GameManager.manager.activeDuo [0].currentMP -= selectedMove [0].cost;
 				GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
 				ResetState ();
 				return;
 			case GameManager.CurrentTurn.ActiveDuo1:
+				GameManager.manager.activeDuo [1].currentMP -= selectedMove [1].cost;
 				GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
 				ResetState ();
 				return;
