@@ -162,12 +162,10 @@ public class ButtonController : MonoBehaviour {
                 else {
 					switch (GameManager.manager.curTurn) {
 					case GameManager.CurrentTurn.ActiveDuo0:
-						GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
-						Combat.combat.ResetState ();
+						GameManager.manager.TurnEnd ();
 						break;
 					case GameManager.CurrentTurn.ActiveDuo1:
-						GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
-						Combat.combat.ResetState ();
+						GameManager.manager.TurnEnd ();
 						break;
 					default:
 						break;

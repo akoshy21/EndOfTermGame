@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour {
 			Combat.combat.selectedMove [3] = Combat.combat.selectedMove [1];
 			Combat.combat.selectedMove [4] = Combat.combat.selectedMove [1];
 
-			GameManager.manager.curTurn = GameManager.CurrentTurn.ExecuteMoves;
+			GameManager.manager.TurnEnd ();
 		}
 	}
 }

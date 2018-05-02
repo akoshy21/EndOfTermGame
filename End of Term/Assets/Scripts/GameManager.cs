@@ -168,14 +168,13 @@ public class GameManager : MonoBehaviour {
 	}
 		
 
-	void TurnEnd()
+	public void TurnEnd()
 	{
 		{
 			switch (curTurn) {
 			case CurrentTurn.ActiveDuo0:
-				for(int i = 0; i < activeDuo[0].mods.Length; i++)
-				{
-					activeDuo[0].mods[i].timer --;
+				for (int i = 0; i < activeDuo [0].mods.Length; i++) {
+					activeDuo [0].mods [i].timer--;
 					// keep working
 					if (activeDuo [0].mods [i].timer == 0) {
 						activeDuo [0].mods [i] = InitScript.roster.effectIndex [0];
@@ -233,6 +232,7 @@ public class GameManager : MonoBehaviour {
 				return;
 			default:
 				return;
+			}
 		}
 	}
 }

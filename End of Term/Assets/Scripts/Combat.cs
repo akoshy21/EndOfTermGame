@@ -159,13 +159,11 @@ public class Combat : MonoBehaviour {
 			switch (GameManager.manager.curTurn) {
 			case GameManager.CurrentTurn.ActiveDuo0:
 				GameManager.manager.activeDuo [0].currentMP -= selectedMove [0].cost;
-				GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
-				ResetState ();
+				GameManager.manager.TurnEnd ();
 				return;
 			case GameManager.CurrentTurn.ActiveDuo1:
 				GameManager.manager.activeDuo [1].currentMP -= selectedMove [1].cost;
-				GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
-				ResetState ();
+				GameManager.manager.TurnEnd ();
 				return;
 			default:
 				return;
