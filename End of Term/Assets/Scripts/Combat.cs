@@ -132,22 +132,45 @@ public class Combat : MonoBehaviour {
                     break;
             }
 
-            if (target == currentMove.targetCount)
-            {
-                switch (GameManager.manager.curTurn)
-                {
-                    case GameManager.CurrentTurn.ActiveDuo0:
-                        GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
-                        ResetState();
-                        return;
-                    case GameManager.CurrentTurn.ActiveDuo1:
-                        GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
-                        ResetState();
-                        return;
-                    default:
-                        return;
-                }
-            }
+		switch (GameManager.manager.curTurn) {
+		case GameManager.CurrentTurn.ActiveDuo0:
+			if (selectedMove [0].isAttack) {
+				selectedMove [0].target [target - 1] = GameManager.manager.enemies [bNum];
+				Debug.Log (target);
+			} else if (!selectedMove [0].isAttack) {
+				selectedMove [0].target [target - 1] = GameManager.manager.activeDuo [bNum];
+			}
+			bt.interactable = false;
+			break;
+		case GameManager.CurrentTurn.ActiveDuo1:
+			if (selectedMove [1].isAttack) {
+				selectedMove [1].target [target-1] = GameManager.manager.enemies [bNum];
+			} else if (!selectedMove [1].isAttack) {
+				selectedMove [1].target [target - 1] = GameManager.manager.activeDuo [bNum];
+			}
+			// Debug.Log (selectedMove [1].target [target-1].characterName);
+			bt.interactable = false;
+			break;
+		default:
+			break;
+		}
+
+		if (target == currentMove.targetCount) {
+			switch (GameManager.manager.curTurn) {
+			case GameManager.CurrentTurn.ActiveDuo0:
+				GameManager.manager.activeDuo [0].currentMP -= selectedMove [0].cost;
+				GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
+				ResetState ();
+				return;
+			case GameManager.CurrentTurn.ActiveDuo1:
+				GameManager.manager.activeDuo [1].currentMP -= selectedMove [1].cost;
+				GameManager.manager.curTurn = GameManager.CurrentTurn.Enemy0;
+				ResetState ();
+				return;
+			default:
+				return;
+			}
+		}
 	}
 
 	public void ActivateMove()

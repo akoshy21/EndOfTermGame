@@ -39,17 +39,22 @@ public class CharacterSwitch : MonoBehaviour {
 	void Start () {
 
 		// set the characters' name field to their name
-		Char1.text = GameManager.manager.team [0].characterName;
-		Char2.text = GameManager.manager.team [1].characterName;
-		Char3.text = GameManager.manager.team [2].characterName;
-		Char4.text = GameManager.manager.team [3].characterName;
+		Char1.text = GameManager.manager.team [0].characterName.ToUpper();
+		Char2.text = GameManager.manager.team [1].characterName.ToUpper();
+		Char3.text = GameManager.manager.team [2].characterName.ToUpper();
+		Char4.text = GameManager.manager.team [3].characterName.ToUpper();
 
 		// fills the character description
 		Char1stats.text = FillDescription(GameManager.manager.team [0].attack, GameManager.manager.team [0].defense,GameManager.manager.team [0].spAttack, GameManager.manager.team [0].spDefense);
 		Char2stats.text = FillDescription(GameManager.manager.team [1].attack, GameManager.manager.team [1].defense,GameManager.manager.team [1].spAttack, GameManager.manager.team [1].spDefense);
 		Char3stats.text = FillDescription(GameManager.manager.team [2].attack, GameManager.manager.team [2].defense,GameManager.manager.team [2].spAttack, GameManager.manager.team [2].spDefense);
 		Char4stats.text = FillDescription(GameManager.manager.team [3].attack, GameManager.manager.team [3].defense,GameManager.manager.team [3].spAttack, GameManager.manager.team [3].spDefense);
-		}
+
+		char1portrait.sprite = GameManager.manager.team [0].portrait;
+		char2portrait.sprite = GameManager.manager.team [1].portrait;
+		char3portrait.sprite = GameManager.manager.team [2].portrait;
+		char4portrait.sprite = GameManager.manager.team [3].portrait;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -78,24 +83,28 @@ public class CharacterSwitch : MonoBehaviour {
 			// Debug.Log (i);
 
 			// if either of the active duo members is equal to the team member at index 'i', mark the button text for that member as selected.
-			if (GameManager.manager.activeDuo [0] == GameManager.manager.team [i] || GameManager.manager.activeDuo [1] == GameManager.manager.team [i]) {
+			if (GameManager.manager.activeDuo [0].RID == GameManager.manager.team [i].RID || GameManager.manager.activeDuo [1].RID == GameManager.manager.team [i].RID) {
 				if (i == 0) {
 					// set the red box to true
 					selected1.gameObject.SetActive (true);
 					// set the button text to selected
 					b1.GetComponentInChildren<Text> ().text = "SELECTED";
+					b1.interactable = false;
 				}
 				if (i == 1) {
 					selected2.gameObject.SetActive (true);
 					b2.GetComponentInChildren<Text> ().text = "SELECTED";
+					b2.interactable = false;
 				}
 				if (i == 2) {
 					selected3.gameObject.SetActive (true);
 					b3.GetComponentInChildren<Text> ().text = "SELECTED";
+					b3.interactable = false;
 				}
 				if (i == 3) {
 					selected4.gameObject.SetActive (true);
 					b4.GetComponentInChildren<Text> ().text = "SELECTED";
+					b4.interactable = false;
 				}
 
 			}
@@ -106,19 +115,23 @@ public class CharacterSwitch : MonoBehaviour {
 					// deactivate red box
 					selected1.gameObject.SetActive (false);
 					// set button text to deselected
-					b1.GetComponentInChildren<Text> ().text = "deselected";
+					b1.GetComponentInChildren<Text> ().text = "SWAP";
+					b1.interactable = true;
 				}
 				if (i == 1) {
 					selected2.gameObject.SetActive (false);
-					b2.GetComponentInChildren<Text> ().text = "deselected";
+					b2.GetComponentInChildren<Text> ().text = "SWAP";
+					b2.interactable = true;
 				}
 				if (i == 2) {
 					selected3.gameObject.SetActive (false);
-					b3.GetComponentInChildren<Text> ().text = "deselected";
+					b3.GetComponentInChildren<Text> ().text = "SWAP";
+					b3.interactable = true;
 				}
 				if (i == 3) {
 					selected4.gameObject.SetActive (false);
-					b4.GetComponentInChildren<Text> ().text = "deselected";
+					b4.GetComponentInChildren<Text> ().text = "SWAP";
+					b4.interactable = true;
 				}
 			}
 		}       
