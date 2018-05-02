@@ -42,6 +42,7 @@ public class Combat : MonoBehaviour {
 
 		for (int i = 0; i < 5; i++) {
 			selectedMove [i] = new Move ("", "", 0, false, 0, 0, false, InitScript.roster.characters [0]);
+			Debug.Log (i);
 		}
 
 		bP0.onClick.AddListener (delegate{TargetPeople(0, bP0);});
@@ -51,11 +52,17 @@ public class Combat : MonoBehaviour {
 		bE2.onClick.AddListener (delegate{TargetPeople(2, bE2);});
 	}
 
+	void Update()
+	{
+		Debug.Log (selectedMove.Length);
+		for (int i = 0; i < 5; i++) {
+			Debug.Log (i + ": " + selectedMove [i].name);
+		}
+		EnemyTurns ();
+	}
+
 	public void AddMoves(int moveClicked)
 	{
-        Debug.Log(currentMove.name);
-        Debug.Log(GameManager.manager.activePlayer);
-        Debug.Log(GameManager.manager.curTurn);
 
         switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.ActiveDuo0:
@@ -100,28 +107,28 @@ public class Combat : MonoBehaviour {
                     GameManager.manager.activeDuo[1].currentMP -= selectedMove[1].cost;
                 }
                 return;
-        case GameManager.CurrentTurn.Enemy0:
-           if(GameManager.manager.enemies[0] == InitScript.roster.characters[5])
-                {
-                    EnemyAI.enemyai.gordon = true;
-                    EnemyAI.enemyai.burgess = false;
-                }
-                return;
-        case GameManager.CurrentTurn.Enemy1:
-                if (GameManager.manager.enemies[1] == InitScript.roster.characters[4])
-                {
-                    EnemyAI.enemyai.gordon = false;
-                    EnemyAI.enemyai.burgess = true;
-                }
-                return;
-        case GameManager.CurrentTurn.Enemy2:
-                if (GameManager.manager.enemies[2] == InitScript.roster.characters[5])
-                {
-                    EnemyAI.enemyai.gordon = true;
-                    EnemyAI.enemyai.burgess = false;
-                }
-                return;
             default:
+			return;
+		}
+	}
+
+	void EnemyTurns()
+	{
+		Debug.Log (GameManager.manager.curTurn);
+		switch (GameManager.manager.curTurn) {
+		case GameManager.CurrentTurn.Enemy0:
+				EnemyAI.enemyai.gordon = true;
+				EnemyAI.enemyai.burgess = false;
+			return;
+		case GameManager.CurrentTurn.Enemy1:
+				EnemyAI.enemyai.gordon = false;
+				EnemyAI.enemyai.burgess = true;
+			return;
+		case GameManager.CurrentTurn.Enemy2:
+				EnemyAI.enemyai.gordon = true;
+				EnemyAI.enemyai.burgess = false;
+			return;
+		default:
 			return;
 		}
 	}
@@ -186,11 +193,11 @@ public class Combat : MonoBehaviour {
 			switch (GameManager.manager.curTurn) {
 			case GameManager.CurrentTurn.ActiveDuo0:
 				GameManager.manager.activeDuo [0].currentMP -= selectedMove [0].cost;
-				GameManager.manager.TurnEnd ();
+				GameManager.manager.TurnEnd ("C, 191");
 				return;
 			case GameManager.CurrentTurn.ActiveDuo1:
 				GameManager.manager.activeDuo [1].currentMP -= selectedMove [1].cost;
-				GameManager.manager.TurnEnd ();
+				GameManager.manager.TurnEnd ("C, 195");
 				return;
 			default:
 				return;

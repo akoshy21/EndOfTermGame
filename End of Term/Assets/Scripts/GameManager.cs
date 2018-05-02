@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour {
                 return;
 			case CurrentTurn.ExecuteMoves:
 				Combat.combat.MoveResults ();
-				TurnEnd ();
+				TurnEnd ("GM, 138");
 				return;
 			default:	
                 return;
@@ -168,9 +168,9 @@ public class GameManager : MonoBehaviour {
 	}
 		
 
-	public void TurnEnd()
+	public void TurnEnd(string source = null)
 	{
-		{
+		Debug.Log (source);
 			switch (curTurn) {
 			case CurrentTurn.ActiveDuo0:
 				for (int i = 0; i < activeDuo [0].mods.Length; i++) {
@@ -235,4 +235,3 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
-}

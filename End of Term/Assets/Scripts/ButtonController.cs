@@ -162,10 +162,10 @@ public class ButtonController : MonoBehaviour {
                 else {
 					switch (GameManager.manager.curTurn) {
 					case GameManager.CurrentTurn.ActiveDuo0:
-						GameManager.manager.TurnEnd ();
+						GameManager.manager.TurnEnd ("buttoncontroller, 165");
 						break;
 					case GameManager.CurrentTurn.ActiveDuo1:
-						GameManager.manager.TurnEnd ();
+						GameManager.manager.TurnEnd ("BC, 168");
 						break;
 					default:
 						break;

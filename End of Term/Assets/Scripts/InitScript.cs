@@ -93,7 +93,7 @@ public class InitScript : MonoBehaviour {
 		characters [5].moveSet [0] = new Move ("Default Attack", "blah blah", 1, true, 20, 0, false, characters[5]);
 		characters [5].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 30, 4, false, characters[0], 1);
 		characters [5].moveSet [2] = new Move ("Fuel Mana", "blah blah", 1, false, 0, 4, false, characters[5], 8);
-		characters [5].moveSet [3] = new Move ("Sacrifce", "blah blah", 2, true, 50, 0, true, characters[5], 13);
+		characters [5].moveSet [3] = new Move ("Sacrifice", "blah blah", 2, true, 50, 0, true, characters[5], 13);
 		for (int i = 0; i < 4; i++) {
 			characters [5].mods [i] = effectIndex [0];
 		}
@@ -105,6 +105,8 @@ public class InitScript : MonoBehaviour {
 	{
 		effectIndex = new Modifiers[20];
 
+		effectIndex [0] = new Modifiers (false, false, 0, 0, 0, 0, "NOTHING");
+		effectIndex [1] = new Modifiers (false, false, 0, 0, 0, 0, "heal");
 		effectIndex [2] = new Modifiers (false, false, 0, 1, 1, 0, "remove all effects");
 		effectIndex [3] = new Modifiers (false, false, 0, 0.2f, 0, 3, "ups damage");
 		effectIndex [4] = new Modifiers (false, true, 7, 0, 0, 5, "small shield");

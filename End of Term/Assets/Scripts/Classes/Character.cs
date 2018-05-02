@@ -79,6 +79,8 @@ public class Character {
 
 		isEnemy = copy.isEnemy;
 
+		mods = copy.mods;
+
 		RID = GameManager.manager.charID;
 		GameManager.manager.charID++;
 	}
