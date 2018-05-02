@@ -277,8 +277,9 @@ public class Combat : MonoBehaviour {
 							difference = selectedMove [i].target [j].shield -((selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4));
 							if (difference < 0) {
 								selectedMove [i].target [j].currentHealth += difference;
+								selectedMove [i].target [j].shielded = false;
 							}
-							
+							Debug.Log ("Shield: " + selectedMove [i].target [j].shield);						
 						}
 						UpdateCharStatus (selectedMove [i].target [j]);
                         //Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
@@ -297,6 +298,7 @@ public class Combat : MonoBehaviour {
 						if (difference < 0) {
 							selectedMove [i].target [j].currentHealth += difference;
 						}
+							Debug.Log ("Shield: " + selectedMove [i].target [j].shield);						
 						UpdateCharStatus (selectedMove [i].target [j]);
 					}
 				}

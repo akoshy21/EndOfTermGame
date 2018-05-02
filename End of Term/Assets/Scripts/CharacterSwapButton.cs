@@ -27,7 +27,7 @@ public class CharacterSwapButton : MonoBehaviour
         GameManager.manager.end = true;
 		for(int i = 0; i < 4; i++)
 		{
-			if (GameManager.manager.activeDuo[GameManager.manager.activePlayer].characterName == GameManager.manager.team[i].characterName) {
+			if (GameManager.manager.activeDuo[GameManager.manager.activePlayer].RID == GameManager.manager.team[i].RID) {
 				GameManager.manager.team[i] = GameManager.manager.activeDuo[GameManager.manager.activePlayer];
 			}
 		}

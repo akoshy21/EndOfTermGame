@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour {
 
 		SetupSprites ();
         //Debug.Log(curTurn);
-        Debug.Log("is 1 Dead? " + activeDuo[0].dead);
-        Debug.Log("is 2 Dead? " + activeDuo[1].dead);
+//        Debug.Log("is 1 Dead? " + activeDuo[0].dead);
+//        Debug.Log("is 2 Dead? " + activeDuo[1].dead);
     }
 
     void GameManagerSetup()

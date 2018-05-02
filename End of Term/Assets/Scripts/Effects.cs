@@ -31,6 +31,7 @@ public class Effects : MonoBehaviour {
 		effectIndex [5] = new Modifiers (false, false, 0, 0, 0, 0, "intervene");
 		effectIndex [6] = new Modifiers (false, false, 0, 0.2f, 0.2f, 3, "self inspire, ups speed n damage");
 		effectIndex [7] = new Modifiers (false, false, 0, 0, -0.2f, 2, "deaf");
+		effectIndex [12] = new Modifiers (false, false, 0, 0, 0, 0, "swapper");
 
 
 
@@ -100,6 +101,12 @@ public class Effects : MonoBehaviour {
 				}
 			}
 			return;
+		case 11:
+			Swapper (tar);
+			return;
+		case 12:
+			  
+			return;
 		default:
 			return;
 		}
@@ -108,7 +115,8 @@ public class Effects : MonoBehaviour {
 	public void Intervene(Character t)
 	{
 		int an;
-		
+
+
 		if (t.RID == GameManager.manager.activeDuo [0].RID) {
 			an = GameManager.manager.activeDuo [1].RID;
 		} else {
@@ -117,6 +125,8 @@ public class Effects : MonoBehaviour {
 
 		for (int i = 0; i < Combat.combat.selectedMove.Length; i++) {
 			if (Combat.combat.selectedMove [i].targetCount == 3) {
+				Debug.Log ("intervening");
+
 				for (int j = 0; j < 3; j++) {
 					Debug.Log (j);
 					if (Combat.combat.selectedMove [i].target [j].RID == an) {
@@ -133,14 +143,38 @@ public class Effects : MonoBehaviour {
 				}
 			}
 			if (Combat.combat.selectedMove [i].targetCount == 1) {
-				for (int j = 0; j < 1; j++) {
-					Debug.Log (j);
-					if (Combat.combat.selectedMove [i].target [j].RID == an) {
-						Combat.combat.selectedMove [i].target [j] = t;
-					}
+				if (Combat.combat.selectedMove [i].target [0].RID == an) {
+					Combat.combat.selectedMove [i].target [0] = t;
 				}
 			}
 		}
 		//Combat.combat.intervene = false;
+	}
+
+	public void Swapper(Character t)
+	{
+		Character swap;
+		int adIndex = 0;
+
+		for (int i = 0; i < 2; i++) {
+			if (t.RID == GameManager.manager.activeDuo [i].RID) {
+				adIndex = i;
+			}
+		}
+
+		for(int i = 0; i < 4; i++)
+		{
+		swap = GameManager.manager.team[i];
+
+		if (swap.RID != GameManager.manager.activeDuo [0].RID && swap.RID != GameManager.manager.activeDuo [1].RID) {
+			for (int j = 0; j < 4; j++) {
+				if (GameManager.manager.activeDuo [adIndex].RID == GameManager.manager.team [j].RID) {
+					GameManager.manager.team [j] = GameManager.manager.activeDuo [adIndex];
+				}
+			}
+			GameManager.manager.activeDuo [adIndex] = swap;
+				break;
+			}
+		}
 	}
 }
