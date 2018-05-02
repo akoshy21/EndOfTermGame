@@ -56,7 +56,15 @@ public class Effects : MonoBehaviour {
 			}
 			return;
 		case 4:
-			
+			for(int i = 0; i < 4; i++)
+			{
+				if(tar.mods[i] == effectIndex[0])
+				{
+					tar.mods[i] = effectIndex[4];
+					tar.shield = tar.mods [i].shield;
+					break;
+				}
+			}
 			return;
 		default:
 			return;
