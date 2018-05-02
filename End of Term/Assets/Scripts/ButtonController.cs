@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ButtonController : MonoBehaviour {
 
@@ -117,6 +118,7 @@ public class ButtonController : MonoBehaviour {
     void TaskOnClick()
 	{
 		ButtonClick ();
+		EventSystem.current.SetSelectedGameObject (null);
     }
 
 	void ButtonClick()
@@ -157,6 +159,7 @@ public class ButtonController : MonoBehaviour {
 				}
 			}
 			Debug.Log ("CLICK");
+
 			return;
 		case GameManager.TurnState.CharacterSwap:
 			if (button == 5) {
