@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour {
 
 		SetupAnimators ();
         //Debug.Log(curTurn);
-        Debug.Log("is 1 Dead? " + activeDuo[0].dead);
-        Debug.Log("is 2 Dead? " + activeDuo[1].dead);
+        //Debug.Log("is 1 Dead? " + activeDuo[0].dead);
+        //Debug.Log("is 2 Dead? " + activeDuo[1].dead);
     }
 
     void GameManagerSetup()
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour {
                     turnstate = TurnState.CharacterSwap;
                 return;
 			case CurrentTurn.ExecuteMoves:
-				Combat.combat.MoveResults ();
+                Combat.combat.MoveResults();
 				TurnEnd ("GM, 138");
 				return;
 			default:	

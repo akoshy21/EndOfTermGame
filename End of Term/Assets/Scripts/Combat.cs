@@ -6,6 +6,8 @@ using System;
 
 public class Combat : MonoBehaviour {
 
+    int MoveTurn;
+
 	public Move[] selectedMove;
 
 	public Move currentMove;
@@ -33,6 +35,7 @@ public class Combat : MonoBehaviour {
 
 	void Start()
 	{
+        MoveTurn = 0;
 		combatOrder = new Character[5];
 		selectedMove = new Move[5];
 
@@ -58,7 +61,11 @@ public class Combat : MonoBehaviour {
 			//Debug.Log (selectedMove .Length);
 		}
 		EnemyTurns ();
-	}
+        if (Input.GetMouseButtonDown(0) && GameManager.manager.curTurn == GameManager.CurrentTurn.ExecuteMoves)
+        {
+            MoveTurn++;
+        }
+    }
 
 	public void AddMoves(int moveClicked)
 	{
