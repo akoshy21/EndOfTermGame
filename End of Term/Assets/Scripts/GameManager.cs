@@ -213,8 +213,8 @@ public class GameManager : MonoBehaviour {
 						enemies [1].mods [i] = InitScript.roster.effectIndex [0];
 					}
 				}
-				curTurn = CurrentTurn.Enemy2;
 				Combat.combat.ResetState ();
+				curTurn = CurrentTurn.Enemy2;
 				return;
 			case CurrentTurn.Enemy2:
 				for (int i = 0; i < enemies [2].mods.Length; i++) {

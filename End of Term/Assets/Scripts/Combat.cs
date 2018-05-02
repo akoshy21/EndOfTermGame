@@ -56,7 +56,7 @@ public class Combat : MonoBehaviour {
 	{
 		Debug.Log (selectedMove.Length);
 		for (int i = 0; i < 5; i++) {
-			Debug.Log (i + ": " + selectedMove [i].name);
+			Debug.Log (selectedMove .Length);
 		}
 		EnemyTurns ();
 	}

@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour {
             else
             {
                 //If Burgess' needs are satiated and Gordon is not in danger, he will attack indiscriminately 
-                Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[0];
+				Combat.combat.selectedMove[currentEnemy + 2 ] = GameManager.manager.enemies[currentEnemy].moveSet[0];
 				Debug.Log (Combat.combat.selectedMove[currentEnemy + 2].name);
                 Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.enemies[Random.Range(1,2)];
             }
