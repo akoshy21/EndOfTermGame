@@ -100,7 +100,7 @@ public class InitScript : MonoBehaviour {
 		}
 
 		characters [5] = new Character (gordonSp, null, null, "Gordon", 16, 12, 14, 15, 13, true);
-		characters [5].moveSet [0] = new Move ("Default Attack", "blah blah", 1, true, 15, 0, false, characters[5]);
+		characters [5].moveSet [0] = new Move ("Default Attack", "blah blah", 1, true, 15, 0, true, characters[5]);
 		characters [5].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0], 1);
 		characters [5].moveSet [2] = new Move ("Fuel Mana", "blah blah", 1, false, 0, 4, false, characters[5], 8);
 		characters [5].moveSet [3] = new Move ("Sacrifice", "blah blah", 2, true, 40, 0, true, characters[5], 13);

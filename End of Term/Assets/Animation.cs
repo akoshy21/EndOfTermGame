@@ -7,6 +7,10 @@ public class Animation : StateMachineBehaviour {
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 0);
+        GameManager.manager.active1.GetComponent<Animator>().SetInteger("State", 0);
+        GameManager.manager.enemy0.GetComponent<Animator>().SetInteger("State", 0);
+        GameManager.manager.enemy1.GetComponent<Animator>().SetInteger("State", 0);
+        GameManager.manager.enemy2.GetComponent<Animator>().SetInteger("State", 0);
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -241,19 +241,66 @@ public class Combat : MonoBehaviour {
 		GameManager.manager.turnstate = GameManager.TurnState.Menu;
 	}
 
+    public void Animate(Move selectedMove, bool isPhysical)
+    {
+        if (isPhysical)
+        {
+            if (selectedMove.caster == GameManager.manager.activeDuo[0])
+            {
+                GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 1);
+            }
+            if (selectedMove.caster == GameManager.manager.activeDuo[1])
+            {
+                GameManager.manager.active1.GetComponent<Animator>().SetInteger("State", 1);
+            }
+            if (selectedMove.caster == GameManager.manager.enemies[0])
+            {
+                GameManager.manager.enemy0.GetComponent<Animator>().SetInteger("State", 1);
+            }
+            if (selectedMove.caster == GameManager.manager.enemies[1])
+            {
+                GameManager.manager.enemy1.GetComponent<Animator>().SetInteger("State", 1);
+            }
+            if (selectedMove.caster == GameManager.manager.enemies[2])
+            {
+                GameManager.manager.enemy2.GetComponent<Animator>().SetInteger("State", 1);
+            }
+        }
+        else
+        {
+            if (selectedMove.caster == GameManager.manager.activeDuo[0])
+            {
+                GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 2);
+            }
+            if (selectedMove.caster == GameManager.manager.activeDuo[1])
+            {
+                GameManager.manager.active1.GetComponent<Animator>().SetInteger("State", 2);
+            }
+            if (selectedMove.caster == GameManager.manager.enemies[0])
+            {
+                GameManager.manager.enemy0.GetComponent<Animator>().SetInteger("State", 2);
+            }
+            if (selectedMove.caster == GameManager.manager.enemies[1])
+            {
+                GameManager.manager.enemy1.GetComponent<Animator>().SetInteger("State", 2);
+            }
+            if (selectedMove.caster == GameManager.manager.enemies[2])
+            {
+                GameManager.manager.enemy2.GetComponent<Animator>().SetInteger("State", 2);
+            }
+        }
+    }
+
 	public void MoveResults()
 	{
 		SortMoveSpeeds();
 
 		for(int i = 0; i < 5; i++)
 		{
-			if (selectedMove [i].isAttack && selectedMove[i].caster.dead == false) {
+            Animate(selectedMove[i], selectedMove[i].isPhysical);
+            if (selectedMove [i].isAttack && selectedMove[i].caster.dead == false) {
 				if (selectedMove [i].isPhysical) {
-                    if(selectedMove[i].caster == GameManager.manager.activeDuo[0])
-                    {
-                        GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 1);
-                    }
-					for (int j = 0; j < selectedMove [i].targetCount; j++) {
+                    for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
 						Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.attack * selectedMove[i].power) / (selectedMove[i].target[j].defense * 6) + " damage!");
 						UpdateCharStatus (selectedMove [i].target [j]);
@@ -262,10 +309,6 @@ public class Combat : MonoBehaviour {
                             selectedMove[i].target[j].dead = true;
                     }
                 } else if (!selectedMove [i].isPhysical) {
-                    if (selectedMove[i].caster == GameManager.manager.activeDuo[0])
-                    {
-                        GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 2);
-                    }
                     for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 4);
                         Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.spAttack * selectedMove[i].power) / (selectedMove[i].target[j].spDefense * 6) + " damage!");
