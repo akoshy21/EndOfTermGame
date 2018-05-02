@@ -13,6 +13,11 @@ public class Effects : MonoBehaviour {
 			index = this;
 		}
 	}
+
+	void Start()
+	{
+		InitializeIndex ();
+	}
 	
 	// Update is called once per frame
 	void Update () {

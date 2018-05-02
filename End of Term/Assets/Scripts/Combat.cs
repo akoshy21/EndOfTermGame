@@ -321,6 +321,7 @@ public class Combat : MonoBehaviour {
 			Effects.index.Intervene (intervener);
 		}
 
+
 		SortMoveSpeeds();
 
 		for(int i = 0; i < 5; i++)
@@ -341,10 +342,13 @@ public class Combat : MonoBehaviour {
 							}
 							Debug.Log ("Shield: " + selectedMove [i].target [j].shield);
 						}
-						if (selectedMove [i].target [j].currentHealth <= 0)
+						if (selectedMove [i].target [j].currentHealth <= 0) {
+							Debug.Log ("dying");
 							selectedMove [i].target [j].currentHealth = 0;
 							selectedMove [i].target [j].dead = true;
+						}
 						UpdateCharStatus (selectedMove [i].target [j]);
+
 					}
                 } else if (!selectedMove [i].isPhysical) {
                     for (int j = 0; j < selectedMove [i].targetCount; j++) {

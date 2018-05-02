@@ -120,7 +120,10 @@ public class InitScript : MonoBehaviour {
 		effectIndex [2] = new Modifiers (false, false, 0, 1, 1, 0, "remove all effects");
 		effectIndex [3] = new Modifiers (false, false, 0, 0.2f, 0, 3, "ups damage");
 		effectIndex [4] = new Modifiers (false, true, 7, 0, 0, 5, "small shield");
-		effectIndex [5] = new Modifiers (false, false, 0, 0.2f, 0.2f, 3, "self inspire, ups speed n damage");
+		effectIndex [5] = new Modifiers (false, false, 0, 0, 0, 0, "intervene");
+		effectIndex [6] = new Modifiers (false, false, 0, 0.2f, 0.2f, 3, "self inspire, ups speed n damage");
+		effectIndex [7] = new Modifiers (false, false, 0, 0, -0.2f, 2, "deaf");
+		effectIndex [12] = new Modifiers (false, false, 0, 0, 0, 0, "swapper");
 	}
 
 }

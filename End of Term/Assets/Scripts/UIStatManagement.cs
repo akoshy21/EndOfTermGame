@@ -28,6 +28,9 @@ public class UIStatManagement : MonoBehaviour {
 	public Text aD1;
 	public Text aD0;
 
+	public Image shield0;
+	public Image shield1;
+
 	void Update()
 	{
 		UpdateFills ();
@@ -65,6 +68,9 @@ public class UIStatManagement : MonoBehaviour {
 		e1manaFill.fillAmount = ((float)GameManager.manager.enemies [1].currentMP) / ((float)GameManager.manager.enemies [1].maxMP);
 
 		e2healthFill.fillAmount = ((float)GameManager.manager.enemies [2].currentHealth) / ((float)GameManager.manager.enemies [2].maxHealth);
+		e2manaFill.fillAmount = ((float)GameManager.manager.enemies [2].currentMP) / ((float)GameManager.manager.enemies [2].maxMP);
+
+		e2manaFill.fillAmount = ((float)GameManager.manager.enemies [2].currentMP) / ((float)GameManager.manager.enemies [2].maxMP);
 		e2manaFill.fillAmount = ((float)GameManager.manager.enemies [2].currentMP) / ((float)GameManager.manager.enemies [2].maxMP);
 
 	}

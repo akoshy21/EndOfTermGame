@@ -75,13 +75,14 @@ public class EnemyAI : MonoBehaviour {
     }
     void Burgess()
     {
-        if (burgess && !(GameManager.manager.enemies[currentEnemy].currentHealth <= 0))
-        {
-			Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[0];
-            Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.activeDuo[Random.Range(0, 2)];
-            GameManager.manager.TurnEnd("EAI, 72");
-        }
-        else if (burgess)
+		if (GameManager.manager.enemies[currentEnemy].currentHealth <= (GameManager.manager.enemies[currentEnemy].maxHealth / 2) && GameManager.manager.enemies[currentEnemy].currentMP >= 5) {
+			Combat.combat.selectedMove [currentEnemy + 2] = GameManager.manager.enemies [currentEnemy].moveSet [1];
+			Combat.combat.selectedMove [currentEnemy + 2].target [0] = GameManager.manager.activeDuo [Random.Range (0, 2)];
+		} else if (burgess && !(GameManager.manager.enemies [currentEnemy].currentHealth <= 0)) {
+			Combat.combat.selectedMove [currentEnemy + 2] = GameManager.manager.enemies [currentEnemy].moveSet [0];
+			Combat.combat.selectedMove [currentEnemy + 2].target [0] = GameManager.manager.activeDuo [Random.Range (0, 2)];
+			GameManager.manager.TurnEnd ("EAI, 72");
+		}else if (burgess)
             GameManager.manager.TurnEnd("EAI, 64");
     }
 }
