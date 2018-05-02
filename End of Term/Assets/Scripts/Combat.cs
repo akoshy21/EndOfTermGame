@@ -64,6 +64,7 @@ public class Combat : MonoBehaviour {
                 {
                     selectedMove[0].target[0] = GameManager.manager.activeDuo[0];
                     selectedMove[0].target[1] = GameManager.manager.activeDuo[1];
+                    GameManager.manager.activeDuo[0].currentMP -= selectedMove[0].cost;
 
                 }
                 else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true)
@@ -71,11 +72,13 @@ public class Combat : MonoBehaviour {
                     selectedMove[0].target[0] = GameManager.manager.enemies[0];
                     selectedMove[0].target[1] = GameManager.manager.enemies[1];
                     selectedMove[0].target[2] = GameManager.manager.enemies[2];
+                    GameManager.manager.activeDuo[0].currentMP -= selectedMove[0].cost;
 
                 }
                 else if (Combat.combat.currentMove.targetCount == 0)
                 {
                     selectedMove[0].target[0] = GameManager.manager.activeDuo[0];
+                    GameManager.manager.activeDuo[0].currentMP -= selectedMove[0].cost;
                 }
 			return;
 		case GameManager.CurrentTurn.ActiveDuo1:
@@ -83,18 +86,42 @@ public class Combat : MonoBehaviour {
 			if (Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) {
 				selectedMove[1].target [0] = GameManager.manager.activeDuo[0];
 				selectedMove[1].target [1] = GameManager.manager.activeDuo[1];
-				}
+                GameManager.manager.activeDuo[1].currentMP -= selectedMove[1].cost;
+                }
 			else if (Combat.combat.currentMove.targetCount == 3 && Combat.combat.currentMove.isAttack == true) {
 				selectedMove[1].target [0] = GameManager.manager.enemies[0];
 				selectedMove[1].target [1] = GameManager.manager.enemies[1];
 				selectedMove[1].target [2] = GameManager.manager.enemies[2];
+                GameManager.manager.activeDuo [1].currentMP -= selectedMove [1].cost;
 				}
                 else if (Combat.combat.currentMove.targetCount == 0)
                 {
                     selectedMove[1].target[0] = GameManager.manager.activeDuo[1];
+                    GameManager.manager.activeDuo[1].currentMP -= selectedMove[1].cost;
                 }
                 return;
-		default:
+        case GameManager.CurrentTurn.Enemy0:
+           if(GameManager.manager.enemies[0] == InitScript.roster.characters[5])
+                {
+                    EnemyAI.enemyai.gordon = true;
+                    EnemyAI.enemyai.burgess = false;
+                }
+                return;
+        case GameManager.CurrentTurn.Enemy1:
+                if (GameManager.manager.enemies[1] == InitScript.roster.characters[4])
+                {
+                    EnemyAI.enemyai.gordon = false;
+                    EnemyAI.enemyai.burgess = true;
+                }
+                return;
+        case GameManager.CurrentTurn.Enemy2:
+                if (GameManager.manager.enemies[2] == InitScript.roster.characters[5])
+                {
+                    EnemyAI.enemyai.gordon = true;
+                    EnemyAI.enemyai.burgess = false;
+                }
+                return;
+            default:
 			return;
 		}
 	}
