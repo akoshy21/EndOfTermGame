@@ -129,7 +129,9 @@ public class Combat : MonoBehaviour {
 				EnemyAI.enemyai.burgess = false;
 			return;
 		default:
-			return;
+                EnemyAI.enemyai.gordon = false;
+                EnemyAI.enemyai.burgess = false;
+                return;
 		}
 	}
 
