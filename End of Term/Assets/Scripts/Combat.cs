@@ -42,7 +42,7 @@ public class Combat : MonoBehaviour {
 
 		for (int i = 0; i < 5; i++) {
 			selectedMove [i] = new Move ("", "", 0, false, 0, 0, false, InitScript.roster.characters [0]);
-			Debug.Log (i);
+			//Debug.Log (i);
 		}
 
 		bP0.onClick.AddListener (delegate{TargetPeople(0, bP0);});
@@ -54,9 +54,9 @@ public class Combat : MonoBehaviour {
 
 	void Update()
 	{
-		Debug.Log (selectedMove.Length);
+		//Debug.Log (selectedMove.Length);
 		for (int i = 0; i < 5; i++) {
-			Debug.Log (selectedMove .Length);
+			//Debug.Log (selectedMove .Length);
 		}
 		EnemyTurns ();
 	}
@@ -114,7 +114,7 @@ public class Combat : MonoBehaviour {
 
 	void EnemyTurns()
 	{
-		Debug.Log (GameManager.manager.curTurn);
+		//Debug.Log (GameManager.manager.curTurn);
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.Enemy0:
 				EnemyAI.enemyai.gordon = true;
@@ -144,7 +144,7 @@ public class Combat : MonoBehaviour {
                     if (selectedMove[0].isAttack)
                     {
                         selectedMove[0].target[target - 1] = GameManager.manager.enemies[bNum];
-                        Debug.Log(target);
+                       // Debug.Log(target);
                     }
                     else if (!selectedMove[0].isAttack)
                     {
@@ -172,7 +172,7 @@ public class Combat : MonoBehaviour {
 		case GameManager.CurrentTurn.ActiveDuo0:
 			if (selectedMove [0].isAttack) {
 				selectedMove [0].target [target - 1] = GameManager.manager.enemies [bNum];
-				Debug.Log (target);
+				//Debug.Log (target);
 			} else if (!selectedMove [0].isAttack) {
 				selectedMove [0].target [target - 1] = GameManager.manager.activeDuo [bNum];
 			}
@@ -251,22 +251,22 @@ public class Combat : MonoBehaviour {
 			if (selectedMove [i].isAttack) {
 				if (selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
-						// rilee fix the math
-						Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
-
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
-						Debug.Log (selectedMove [i].target [j].currentHealth);
+						Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.attack * selectedMove[i].power) / (selectedMove[i].target[j].defense * 6) + " damage!");
 						UpdateCharStatus (selectedMove [i].target [j]);
+						//Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
 					}
 				} else if (!selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 4);
-						UpdateCharStatus (selectedMove [i].target [j]);
+                        Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.spAttack * selectedMove[i].power) / (selectedMove[i].target[j].spDefense * 6) + " damage!");
+                        UpdateCharStatus (selectedMove [i].target [j]);
 					}
 				}
 			} else if (selectedMove [i].effectIndex == 1) {
 				for (int j = 0; j < selectedMove [i].targetCount; j++) {
 					Debug.Log ("HI " + selectedMove[i].target[j].characterName);
+                    Debug.Log("Healing Done: " + selectedMove[i].caster.spAttack * (selectedMove[i].power / 100));
 					selectedMove [i].target [j].currentHealth += selectedMove [i].caster.spAttack * (selectedMove [i].power / 100);
 					if (selectedMove [i].target [j].currentHealth >= selectedMove [i].target [j].maxHealth) {
 						selectedMove [i].target [j].currentHealth = selectedMove [i].target [j].maxHealth;

@@ -20,8 +20,8 @@ public class EnemyAI : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		Debug.Log (gordon);
-		Debug.Log (burgess);
+		//Debug.Log (gordon);
+		//Debug.Log (burgess);
         Gordon();
         Burgess();
 
@@ -58,7 +58,7 @@ public class EnemyAI : MonoBehaviour {
             {
                 //If Burgess' needs are satiated and Gordon is not in danger, he will attack indiscriminately 
 				Combat.combat.selectedMove[currentEnemy + 2 ] = GameManager.manager.enemies[currentEnemy].moveSet[0];
-				Debug.Log (Combat.combat.selectedMove[currentEnemy + 2].name);
+				//Debug.Log (Combat.combat.selectedMove[currentEnemy + 2].name);
                 Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.activeDuo[Random.Range(0,2)];
             }
 			GameManager.manager.TurnEnd("EAI, 64");
