@@ -266,8 +266,8 @@ public class Combat : MonoBehaviour {
 			} else if (selectedMove [i].effectIndex == 1) {
 				for (int j = 0; j < selectedMove [i].targetCount; j++) {
 					Debug.Log ("HI " + selectedMove[i].target[j].characterName);
-                    Debug.Log("Healing Done: " + selectedMove[i].caster.spAttack * (selectedMove[i].power / 100));
-					selectedMove [i].target [j].currentHealth += selectedMove [i].caster.spAttack * (selectedMove [i].power / 100);
+                    Debug.Log("Healing Done: " + (selectedMove[i].caster.spAttack * selectedMove[i].power) / 100);
+					selectedMove [i].target [j].currentHealth += (selectedMove[i].caster.spAttack * selectedMove[i].power) / 100;
 					if (selectedMove [i].target [j].currentHealth >= selectedMove [i].target [j].maxHealth) {
 						selectedMove [i].target [j].currentHealth = selectedMove [i].target [j].maxHealth;
 					}
