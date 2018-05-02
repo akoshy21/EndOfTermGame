@@ -6,18 +6,28 @@ using System;
 public class SortMoves : IComparer<Move> {
 
 	public int Compare(Move x, Move y){
-		if(x.caster.speed > y.caster.speed)
+		float totalX = 1;
+		float totalY = 1;
+
+		for (int i = 0; i < 4; i++) {
+			totalX += x.caster.mods [i].speedMod;
+			totalY += y.caster.mods [i].speedMod;
+		}
+
+		float xSpeed = (x.caster.speed * totalX);
+		float ySpeed = (y.caster.speed * totalY);
+
+		if(xSpeed > ySpeed)
 		{
 			return -1;
 		}
-		if(x.caster.speed < y.caster.speed)
+		if(xSpeed < ySpeed)
 		{
 			return 1;
 		}
-		if(x.caster.speed == y.caster.speed)
+		if(xSpeed == ySpeed)
 		{
-			int i = UnityEngine.Random.Range (-1, 1);
-			return i;
+			return UnityEngine.Random.Range(-1, 1);
 		}
 		return 0;
 	}

@@ -177,7 +177,7 @@ public class GameManager : MonoBehaviour {
 					activeDuo [0].mods [i].timer--;
 					// keep working
 					if (activeDuo [0].mods [i].timer == 0) {
-						activeDuo [0].mods [i] = InitScript.roster.effectIndex [0];
+						activeDuo [0].mods [i] = Effects.index.effectIndex [0];
 					}
 				}
 				Combat.combat.ResetState ();
@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour {
 					activeDuo [1].mods [i].timer--;
 					// keep working
 					if (activeDuo [1].mods [i].timer == 0) {
-						activeDuo [1].mods [i] = InitScript.roster.effectIndex [0];
+						activeDuo [1].mods [i] = Effects.index.effectIndex [0];
 					}
 				}
 				curTurn = CurrentTurn.Enemy0;
@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour {
 					enemies [0].mods [i].timer--;
 					// keep working
 					if (enemies [0].mods [i].timer == 0) {
-						enemies [0].mods [i] = InitScript.roster.effectIndex [0];
+					enemies [0].mods [i] = Effects.index.effectIndex [0];
 					}
 				}
 				Combat.combat.ResetState ();
@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour {
 					enemies [1].mods [i].timer--;
 					// keep working
 					if (enemies [1].mods [i].timer == 0) {
-						enemies [1].mods [i] = InitScript.roster.effectIndex [0];
+					enemies [1].mods [i] = Effects.index.effectIndex [0];
 					}
 				}
 				Combat.combat.ResetState ();
@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour {
 					enemies [2].mods [i].timer--;
 					// keep working
 					if (enemies [2].mods [i].timer == 0) {
-						enemies [2].mods [i] = InitScript.roster.effectIndex [0];
+					enemies [2].mods [i] = Effects.index.effectIndex [0];
 					}
 				}
 				curTurn = CurrentTurn.ExecuteMoves;
