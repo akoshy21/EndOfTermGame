@@ -81,9 +81,9 @@ public class InitScript : MonoBehaviour {
         characters[3].maxHealth *= 2;
         characters[3].currentHealth = characters[3].maxHealth;
         characters [3].moveSet [0] = new Move ("Firebolt", "blah blah", 1, true, 35, 4, false, characters[3]);
-        characters [3].moveSet [1] = new Move ("Drain", "blah blah", 1, true, 0, -4, false, characters[3], 8);
-        characters [3].moveSet [2] = new Move("Petrify", "blah blah", 1, true, 0, 8, false, characters[3], 9, true);
-        characters [3].moveSet [3] = new Move("Mana Exchange", "blah blah", 1, false, 0, 4, false, characters[3], 10);
+        characters [3].moveSet [1] = new Move ("Drain", "blah blah", 1, true, 0, -4, false, characters[3], 0);
+        characters [3].moveSet [2] = new Move("Petrify", "blah blah", 1, true, 0, 8, false, characters[3], 0, true);
+        characters [3].moveSet [3] = new Move("Mana Exchange", "blah blah", 1, false, 0, 4, false, characters[3], 0);
 		for (int i = 0; i < 4; i++) {
 			characters [3].mods [i] = effectIndex [0];
 		}
@@ -93,7 +93,7 @@ public class InitScript : MonoBehaviour {
         characters[4].currentHealth = characters[4].maxHealth;
         characters [4].moveSet [0] = new Move ("Default Attack", "blah blah", 1, true, 30, 0, true, characters[4]);
 		characters [4].moveSet [1] = new Move ("NoPlaceSwap", "blah blah", 1, true, 0, 5, false, characters[4], 11);
-		characters [4].moveSet [2] = new Move ("Shield", "blah blah", 0, false, 0, 15, false, characters[4], 12, true);
+		characters [4].moveSet [2] = new Move ("Shield", "blah blah", 0, false, 0, 15, false, characters[4], 0, true);
 		characters [4].moveSet [3] = new Move ("Juice", "blah blah", 2, true, 15, 3, false, characters[4]);
 		for (int i = 0; i < 4; i++) {
 			characters [4].mods [i] = effectIndex [0];
@@ -102,8 +102,8 @@ public class InitScript : MonoBehaviour {
 		characters [5] = new Character (gordonSp, null, null, "Gordon", 16, 12, 14, 15, 13, true);
 		characters [5].moveSet [0] = new Move ("Default Attack", "blah blah", 1, true, 15, 0, true, characters[5]);
 		characters [5].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0], 1);
-		characters [5].moveSet [2] = new Move ("Fuel Mana", "blah blah", 1, false, 0, 4, false, characters[5], 8);
-		characters [5].moveSet [3] = new Move ("Sacrifice", "blah blah", 2, true, 40, 0, true, characters[5], 13);
+		characters [5].moveSet [2] = new Move ("Fuel Mana", "blah blah", 1, false, 0, 4, false, characters[5], 0);
+		characters [5].moveSet [3] = new Move ("Sacrifice", "blah blah", 2, true, 40, 0, true, characters[5], 0);
 		for (int i = 0; i < 4; i++) {
 			characters [5].mods [i] = effectIndex [0];
 		}
@@ -123,7 +123,7 @@ public class InitScript : MonoBehaviour {
 		effectIndex [5] = new Modifiers (false, false, 0, 0, 0, 0, "intervene");
 		effectIndex [6] = new Modifiers (false, false, 0, 0.2f, 0.2f, 3, "self inspire, ups speed n damage");
 		effectIndex [7] = new Modifiers (false, false, 0, 0, -0.2f, 2, "deaf");
-		effectIndex [12] = new Modifiers (false, false, 0, 0, 0, 0, "swapper");
+		effectIndex [11] = new Modifiers (false, false, 0, 0, 0, 0, "swapper");
 	}
 
 }
