@@ -106,19 +106,19 @@ public class CharacterSwitch : MonoBehaviour {
 					// deactivate red box
 					selected1.gameObject.SetActive (false);
 					// set button text to deselected
-					b1.GetComponentInChildren<Text> ().text = "deselected";
+					b1.GetComponentInChildren<Text> ().text = "SWAP";
 				}
 				if (i == 1) {
 					selected2.gameObject.SetActive (false);
-					b2.GetComponentInChildren<Text> ().text = "deselected";
+					b2.GetComponentInChildren<Text> ().text = "SWAP";
 				}
 				if (i == 2) {
 					selected3.gameObject.SetActive (false);
-					b3.GetComponentInChildren<Text> ().text = "deselected";
+					b3.GetComponentInChildren<Text> ().text = "SWAP";
 				}
 				if (i == 3) {
 					selected4.gameObject.SetActive (false);
-					b4.GetComponentInChildren<Text> ().text = "deselected";
+					b4.GetComponentInChildren<Text> ().text = "SWAP";
 				}
 			}
 		}       
