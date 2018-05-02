@@ -26,7 +26,7 @@ public class Move {
 
 	// make spells range of damage/heal
 
-	public Move(string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, Character cast, int eI = 1, bool buff = false)
+	public Move(string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, Character cast, int eI = 0, bool buff = false)
 	{
 		name = attackName;
 		targetCount = targetNum;

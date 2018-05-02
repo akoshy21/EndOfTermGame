@@ -60,9 +60,6 @@ public class GameManager : MonoBehaviour {
 		ConditionalObjects ();
 
 		SetupSprites ();
-
-        EndTurn();
-
         // Debug.Log(help);
 	}
 
@@ -138,7 +135,7 @@ public class GameManager : MonoBehaviour {
                 return;
 			case CurrentTurn.ExecuteMoves:
 				Combat.combat.MoveResults ();
-				curTurn = CurrentTurn.ActiveDuo0;
+				TurnEnd ();
 				return;
 			default:	
                 return;
@@ -169,22 +166,73 @@ public class GameManager : MonoBehaviour {
 			return;
 		}
 	}
+		
 
-    public void EndTurn()
-    {
-        if (end == true)
-        {
-            help++;
-
-            if (curTurn == CurrentTurn.ActiveDuo1)
-            {
-                curTurn = CurrentTurn.Enemy0;
-            }
-            if (curTurn == CurrentTurn.ActiveDuo0)
-            {
-                curTurn = CurrentTurn.ActiveDuo1;
-            }
-            end = false;
-        }
-    }
+	void TurnEnd()
+	{
+		{
+			switch (curTurn) {
+			case CurrentTurn.ActiveDuo0:
+				for(int i = 0; i < activeDuo[0].mods.Length; i++)
+				{
+					activeDuo[0].mods[i].timer --;
+					// keep working
+					if (activeDuo [0].mods [i].timer == 0) {
+						activeDuo [0].mods [i] = InitScript.roster.effectIndex [0];
+					}
+				}
+				Combat.combat.ResetState ();
+				curTurn = CurrentTurn.ActiveDuo1;
+				return;
+			case CurrentTurn.ActiveDuo1:
+				for (int i = 0; i < activeDuo [1].mods.Length; i++) {
+					activeDuo [1].mods [i].timer--;
+					// keep working
+					if (activeDuo [1].mods [i].timer == 0) {
+						activeDuo [1].mods [i] = InitScript.roster.effectIndex [0];
+					}
+				}
+				curTurn = CurrentTurn.Enemy0;
+				Combat.combat.ResetState ();
+				return;
+			case CurrentTurn.Enemy0:
+				for (int i = 0; i < enemies [0].mods.Length; i++) {
+					enemies [0].mods [i].timer--;
+					// keep working
+					if (enemies [0].mods [i].timer == 0) {
+						enemies [0].mods [i] = InitScript.roster.effectIndex [0];
+					}
+				}
+				Combat.combat.ResetState ();
+				curTurn = CurrentTurn.Enemy1;
+				return;
+			case CurrentTurn.Enemy1:
+				for (int i = 0; i < enemies [1].mods.Length; i++) {
+					enemies [1].mods [i].timer--;
+					// keep working
+					if (enemies [1].mods [i].timer == 0) {
+						enemies [1].mods [i] = InitScript.roster.effectIndex [0];
+					}
+				}
+				curTurn = CurrentTurn.Enemy2;
+				Combat.combat.ResetState ();
+				return;
+			case CurrentTurn.Enemy2:
+				for (int i = 0; i < enemies [2].mods.Length; i++) {
+					enemies [2].mods [i].timer--;
+					// keep working
+					if (enemies [2].mods [i].timer == 0) {
+						enemies [2].mods [i] = InitScript.roster.effectIndex [0];
+					}
+				}
+				curTurn = CurrentTurn.ExecuteMoves;
+				Combat.combat.ResetState ();
+				return;
+			case CurrentTurn.ExecuteMoves:
+				curTurn = CurrentTurn.ActiveDuo0;
+				return;
+			default:
+				return;
+		}
+	}
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Modifiers {
 
-	public int speedMod;
-	public int damageMod;
+	public float speedMod;
+	public float damageMod;
 
 	public int shield;
 
@@ -14,7 +14,9 @@ public class Modifiers {
 
 	public string modDesc;
 
-	public Modifiers(bool stun, bool shieldBool, int shieldInt = 0, int damage = 0, int speed = 0, string description = null)
+	public int timer;
+
+	public Modifiers(bool stun, bool shieldBool, int shieldInt = 0, float damage = 0, float speed = 0, int time = 1, string description = null)
 	{
 		speedMod = speed;
 		damageMod = damage;
@@ -24,6 +26,8 @@ public class Modifiers {
 		stunned = stun;
 		shielded = shieldBool;
 	
+		timer = time;
+
 		modDesc = description;
 	}
 

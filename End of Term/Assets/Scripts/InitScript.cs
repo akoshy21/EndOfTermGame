@@ -24,6 +24,8 @@ public class InitScript : MonoBehaviour {
 
 	public Character[] characters;
 
+	public Modifiers[] effectIndex;
+
 	// Use this for initialization
 	void Awake () {
 		// make this static script if there isnt one already
@@ -81,6 +83,16 @@ public class InitScript : MonoBehaviour {
 		characters [5].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[5], 2);
 
 		GameManager.manager.MakeTheTeam ();
+	}
+
+	void InitializeIndex()
+	{
+		effectIndex = new Modifiers[20];
+
+		effectIndex [2] = new Modifiers (false, false, 0, 1, 1, 0, "remove all effects");
+		effectIndex [3] = new Modifiers (false, false, 0, 0.2f, 0, 3, "ups damage");
+		effectIndex [4] = new Modifiers (false, true, 7, 0, 0, 5, "small shield");
+		effectIndex [5] = new Modifiers (false, false, 0, 0.2f, 0.2f, 3, "self inspire, ups speed n damage");
 	}
 
 }
