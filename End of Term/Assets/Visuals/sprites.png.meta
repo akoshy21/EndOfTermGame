@@ -1,0 +1,640 @@
+fileFormatVersion: 2
+guid: d878894755d16f143bc53b6ff9c52fb5
+timeCreated: 1525258401
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Luke_Idle_0
+    21300002: Luke_Idle_1
+    21300004: Luke_Physical_0
+    21300006: Luke_Physical_1
+    21300008: Luke_Special_0
+    21300010: Luke_Special_1
+    21300012: Rilee_Idle_0
+    21300014: Rilee_Idle_1
+    21300016: Rilee_Special_0
+    21300018: Rilee_Special_1
+    21300020: Anna_Idle_0
+    21300022: Anna_Idle_1
+    21300024: Anna_Physical_0
+    21300026: Anna_Physical_1
+    21300028: Anna_Special_0
+    21300030: Anna_Special_1
+    21300032: sprites_19
+    21300034: sprites_20
+    21300036: Cindy_Idle_0
+    21300038: Cindy_Idle_1
+    21300040: Cindy_Physical_0
+    21300042: Cindy_Physical_1
+    21300044: Cindy_Special_0
+    21300046: Cindy_Special_1
+    21300048: Gordon_Idle_0
+    21300050: Gordon_Idle_1
+    21300052: Gordan_Physical_0
+    21300054: Gordan_Physical_1
+    21300056: Gordan_Special_0
+    21300058: Gordon_Special_1
+    21300060: sprites_33
+    21300062: sprites_34
+    21300064: sprites_35
+    21300066: Burgess_Idle_0
+    21300068: Burgess_Idle_1
+    21300070: Burgess_Attack_0
+    21300072: Burgess_Attack_1
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Luke_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1407
+        width: 97
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Luke_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 1407
+        width: 97
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Luke_Physical_0
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1435
+        width: 119
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Luke_Physical_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1425
+        width: 147
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Luke_Special_0
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1407
+        width: 97
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Luke_Special_1
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1407
+        width: 120
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rilee_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1240
+        width: 125
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rilee_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1240
+        width: 114
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rilee_Special_0
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1240
+        width: 99
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rilee_Special_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1240
+        width: 190
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Anna_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1086
+        width: 66
+        height: 152
+      alignment: 9
+      pivot: {x: 0.6598514, y: 0.5148725}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Anna_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1086
+        width: 61
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Anna_Physical_0
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1086
+        width: 86
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Anna_Physical_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1086
+        width: 82
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Anna_Special_0
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 1086
+        width: 53
+        height: 152
+      alignment: 9
+      pivot: {x: 0.42786047, y: 0.47484627}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Anna_Special_1
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 1086
+        width: 50
+        height: 152
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47903845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprites_19
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 1086
+        width: 110
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprites_20
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1074
+        width: 178
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cindy_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 920
+        width: 129
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cindy_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 920
+        width: 129
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cindy_Physical_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 920
+        width: 75
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cindy_Physical_1
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 921
+        width: 91
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cindy_Special_0
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 920
+        width: 133
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cindy_Special_1
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 920
+        width: 121
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Gordon_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 714
+        width: 30
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Gordon_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 714
+        width: 30
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Gordan_Physical_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 714
+        width: 45
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Gordan_Physical_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 714
+        width: 58
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Gordan_Special_0
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 714
+        width: 97
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Gordon_Special_1
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 714
+        width: 54
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprites_33
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 774
+        width: 47
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprites_34
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 760
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprites_35
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 742
+        width: 103
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Burgess_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 355
+        width: 256
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Burgess_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 355
+        width: 256
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Burgess_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 223
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Burgess_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 257
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

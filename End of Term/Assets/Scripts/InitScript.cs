@@ -8,19 +8,19 @@ public class InitScript : MonoBehaviour {
 	public static InitScript roster;
 
 	public Sprite anna;
-	public Sprite annaSp;
+	public RuntimeAnimatorController annaSp;
 
 	public Sprite cindy;
-	public Sprite cindySp;
+	public RuntimeAnimatorController cindySp;
 
 	public Sprite rilee;
-	public Sprite rileeSp;
+	public RuntimeAnimatorController rileeSp;
 
 	public Sprite luke;
-	public Sprite lukeSp;
+	public RuntimeAnimatorController lukeSp;
 
-	public Sprite burgessSp;
-	public Sprite gordonSp;
+	public RuntimeAnimatorController burgessSp;
+	public RuntimeAnimatorController gordonSp;
 
 	public Character[] characters;
 
@@ -44,7 +44,7 @@ public class InitScript : MonoBehaviour {
 
         //string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, Character cast, int eI = 1, bool buff = false
         // create characters and movesets
-        characters[0] = new Character (anna, annaSp, "Annamaria", 14, 10, 20, 15, 14);
+        characters[0] = new Character (annaSp, anna, anna, "Annamaria", 14, 10, 20, 15, 14);
         characters[0].maxHealth *= 2;
         characters[0].currentHealth = characters[0].maxHealth;
         characters [0].moveSet [0] = new Move ("Hack()", "blah blah", 1, true, 15, 0, true, characters [0]);
@@ -55,7 +55,7 @@ public class InitScript : MonoBehaviour {
 			characters [0].mods [i] = effectIndex [0];
 		}
 
-		characters [1] = new Character (cindy, cindySp, "Cindy", 13, 17, 10, 17, 10);
+		characters [1] = new Character (cindySp, cindy, cindy, "Cindy", 13, 17, 10, 17, 10);
         characters[1].maxHealth *= 2;
         characters[1].currentHealth = characters[1].maxHealth;
         characters [1].moveSet [0] = new Move ("Slam", "blah blah", 1, true, 20, 0, true, characters [1]);
@@ -66,7 +66,7 @@ public class InitScript : MonoBehaviour {
 			characters [1].mods [i] = effectIndex [0];
 		}
 
-		characters [2] = new Character (luke, lukeSp, "Luke", 18, 13, 12, 10, 17);
+		characters [2] = new Character (lukeSp, luke, luke, "Luke", 18, 13, 12, 10, 17);
         characters[2].maxHealth *= 2;
         characters[2].currentHealth = characters[2].maxHealth;
         characters [2].moveSet [0] = new Move ("Smash", "blah blah", 1, true, 25, 0, true, characters [2]);
@@ -77,7 +77,7 @@ public class InitScript : MonoBehaviour {
 			characters [2].mods [i] = effectIndex [0];
 		}
 
-		characters [3] = new Character (rilee, rileeSp, "Rilee", 14, 12, 18, 15, 14);
+		characters [3] = new Character (rileeSp, rilee, rilee, "Rilee", 14, 12, 18, 15, 14);
         characters[3].maxHealth *= 2;
         characters[3].currentHealth = characters[3].maxHealth;
         characters [3].moveSet [0] = new Move ("Firebolt", "blah blah", 1, true, 35, 4, false, characters[3]);
@@ -88,7 +88,7 @@ public class InitScript : MonoBehaviour {
 			characters [3].mods [i] = effectIndex [0];
 		}
 
-		characters [4] = new Character (null, burgessSp, "Burgess", 10, 15, 20, 17, 18, true);
+		characters [4] = new Character (burgessSp, null, null, "Burgess", 10, 15, 20, 17, 18, true);
         characters[4].maxHealth *= 3;
         characters[4].currentHealth = characters[4].maxHealth;
         characters [4].moveSet [0] = new Move ("Default Attack", "blah blah", 1, true, 30, 0, true, characters[4]);
@@ -99,7 +99,7 @@ public class InitScript : MonoBehaviour {
 			characters [4].mods [i] = effectIndex [0];
 		}
 
-		characters [5] = new Character (null, gordonSp, "Gordon", 16, 12, 14, 15, 13, true);
+		characters [5] = new Character (gordonSp, null, null, "Gordon", 16, 12, 14, 15, 13, true);
 		characters [5].moveSet [0] = new Move ("Default Attack", "blah blah", 1, true, 15, 0, false, characters[5]);
 		characters [5].moveSet [1] = new Move ("Restore()", "blah blah", 1, false, 50, 4, false, characters[0], 1);
 		characters [5].moveSet [2] = new Move ("Fuel Mana", "blah blah", 1, false, 0, 4, false, characters[5], 8);

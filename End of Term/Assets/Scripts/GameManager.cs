@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
     {
         turnstate = TurnState.Menu;
         curTurn = CurrentTurn.ActiveDuo0;
-		SetupSprites ();
+		SetupAnimators ();
 
 		music.gameObject.SetActive (true);
 
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour {
 
 		ConditionalObjects ();
 
-		SetupSprites ();
+		SetupAnimators ();
         //Debug.Log(curTurn);
         Debug.Log("is 1 Dead? " + activeDuo[0].dead);
         Debug.Log("is 2 Dead? " + activeDuo[1].dead);
@@ -100,8 +100,8 @@ public class GameManager : MonoBehaviour {
 		team [3] = InitScript.roster.characters [3];
 
 		activeDuo = new Character[2];
-		activeDuo[0] = team [2];
-		activeDuo[1] = team [3];
+		activeDuo[0] = team [0];
+		activeDuo[1] = team [2];
 
 		enemies = new Character[3];
 		enemies [0] = InitScript.roster.characters [5];
@@ -109,16 +109,16 @@ public class GameManager : MonoBehaviour {
 		enemies [2] = new Character(InitScript.roster.characters [5]);
 	}
 
-	void SetupSprites()
+	void SetupAnimators()
 	{
-		active0.GetComponent<SpriteRenderer> ().sprite = activeDuo [0].charSprite;
-		active1.GetComponent<SpriteRenderer> ().sprite = activeDuo [1].charSprite;
+		active0.GetComponent<Animator> ().runtimeAnimatorController = activeDuo [0].animator;
+		active1.GetComponent<Animator> ().runtimeAnimatorController = activeDuo [1].animator;
 
-		enemy0.GetComponent<SpriteRenderer> ().sprite = enemies [0].charSprite;
-		enemy1.GetComponent<SpriteRenderer> ().sprite = enemies [1].charSprite;
-		enemy2.GetComponent<SpriteRenderer> ().sprite = enemies [2].charSprite;
+        enemy0.GetComponent<Animator>().runtimeAnimatorController = enemies[0].animator;
+        enemy1.GetComponent<Animator>().runtimeAnimatorController = enemies[1].animator;
+        enemy2.GetComponent<Animator>().runtimeAnimatorController = enemies[2].animator;
 
-	}
+    }
 
     void LightChange()
     {
@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour {
 		switch (turnstate)
 		{
 		case TurnState.Menu:
-			targeting.gameObject.SetActive (false);
+                targeting.gameObject.SetActive (false);
 			return;
 		case TurnState.Stats:
 			targeting.gameObject.SetActive (false);

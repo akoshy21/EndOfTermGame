@@ -249,6 +249,10 @@ public class Combat : MonoBehaviour {
 		{
 			if (selectedMove [i].isAttack && selectedMove[i].caster.dead == false) {
 				if (selectedMove [i].isPhysical) {
+                    if(selectedMove[i].caster == GameManager.manager.activeDuo[0])
+                    {
+                        GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 1);
+                    }
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
 						Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.attack * selectedMove[i].power) / (selectedMove[i].target[j].defense * 6) + " damage!");
@@ -257,8 +261,12 @@ public class Combat : MonoBehaviour {
                         if (selectedMove[i].target[j].currentHealth <= 0)
                             selectedMove[i].target[j].dead = true;
                     }
-				} else if (!selectedMove [i].isPhysical) {
-					for (int j = 0; j < selectedMove [i].targetCount; j++) {
+                } else if (!selectedMove [i].isPhysical) {
+                    if (selectedMove[i].caster == GameManager.manager.activeDuo[0])
+                    {
+                        GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 2);
+                    }
+                    for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 4);
                         Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.spAttack * selectedMove[i].power) / (selectedMove[i].target[j].spDefense * 6) + " damage!");
                         UpdateCharStatus (selectedMove [i].target [j]);
@@ -267,7 +275,10 @@ public class Combat : MonoBehaviour {
                     }
 				}
 			} else if (selectedMove [i].effectIndex == 1) {
-				for (int j = 0; j < selectedMove [i].targetCount; j++) {
+                {
+                    GameManager.manager.active0.GetComponent<Animator>().SetInteger("State", 2);
+                }
+                for (int j = 0; j < selectedMove [i].targetCount; j++) {
 					Debug.Log ("HI " + selectedMove[i].target[j].characterName);
                     Debug.Log("Healing Done: " + (selectedMove[i].caster.spAttack * selectedMove[i].power) / 100);
 					selectedMove [i].target [j].currentHealth += (selectedMove[i].caster.spAttack * selectedMove[i].power) / 100;
