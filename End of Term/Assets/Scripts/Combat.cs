@@ -6,7 +6,6 @@ using System;
 
 public class Combat : MonoBehaviour {
 
-
 	public Move[] selectedMove;
 
 	public Move currentMove;
@@ -117,16 +116,16 @@ public class Combat : MonoBehaviour {
 		//Debug.Log (GameManager.manager.curTurn);
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.Enemy0:
-				EnemyAI.enemyai.gordon = true;
-				EnemyAI.enemyai.burgess = false;
+                    EnemyAI.enemyai.gordon = true;
+                    EnemyAI.enemyai.burgess = false;
 			return;
-		case GameManager.CurrentTurn.Enemy1:
-				EnemyAI.enemyai.gordon = false;
-				EnemyAI.enemyai.burgess = true;
+		case GameManager.CurrentTurn.Enemy1:               
+                    EnemyAI.enemyai.gordon = false;
+                    EnemyAI.enemyai.burgess = true;
 			return;
 		case GameManager.CurrentTurn.Enemy2:
-				EnemyAI.enemyai.gordon = true;
-				EnemyAI.enemyai.burgess = false;
+                    EnemyAI.enemyai.gordon = true;
+                    EnemyAI.enemyai.burgess = false;
 			return;
 		default:
                 EnemyAI.enemyai.gordon = false;
@@ -248,20 +247,24 @@ public class Combat : MonoBehaviour {
 
 		for(int i = 0; i < 5; i++)
 		{
-			if (selectedMove [i].isAttack) {
+			if (selectedMove [i].isAttack && selectedMove[i].caster.dead == false) {
 				if (selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
 						Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.attack * selectedMove[i].power) / (selectedMove[i].target[j].defense * 6) + " damage!");
 						UpdateCharStatus (selectedMove [i].target [j]);
-						//Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
-					}
+                        //Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
+                        if (selectedMove[i].target[j].currentHealth <= 0)
+                            selectedMove[i].target[j].dead = true;
+                    }
 				} else if (!selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.spAttack * selectedMove [i].power) / (selectedMove [i].target [j].spDefense * 4);
                         Debug.Log(selectedMove[i].caster.characterName + " used " + selectedMove[i].name + " on " + selectedMove[i].target[0].characterName + " for " + (selectedMove[i].caster.spAttack * selectedMove[i].power) / (selectedMove[i].target[j].spDefense * 6) + " damage!");
                         UpdateCharStatus (selectedMove [i].target [j]);
-					}
+                        if (selectedMove[i].target[j].currentHealth <= 0)
+                            selectedMove[i].target[j].dead = true;
+                    }
 				}
 			} else if (selectedMove [i].effectIndex == 1) {
 				for (int j = 0; j < selectedMove [i].targetCount; j++) {
@@ -273,6 +276,7 @@ public class Combat : MonoBehaviour {
 					}
 				}
 			}
+            
 		}
 	}
 

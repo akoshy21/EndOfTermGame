@@ -58,8 +58,8 @@ public class InitScript : MonoBehaviour {
 		characters [1] = new Character (cindy, cindySp, "Cindy", 13, 17, 10, 17, 10);
         characters[1].maxHealth *= 2;
         characters[1].currentHealth = characters[1].maxHealth;
-        characters [1].moveSet [0] = new Move ("Slam", "blah blah", 1, true, 25, 0, true, characters [1]);
-		characters [1].moveSet [1] = new Move ("Charge", "blah blah", 3, true, 20, 1, true, characters[1]);
+        characters [1].moveSet [0] = new Move ("Slam", "blah blah", 1, true, 20, 0, true, characters [1]);
+		characters [1].moveSet [1] = new Move ("Charge", "blah blah", 3, true, 15, 1, true, characters[1]);
 		characters [1].moveSet [2] = new Move ("Shield", "blah blah", 0, false, 0, 4, false, characters[1], 4, true);
 		characters [1].moveSet [3] = new Move ("Intervene", "blah blah", 1, false, 0, 2, false, characters[1], 5, true);
 		for (int i = 0; i < 4; i++) {
@@ -69,9 +69,9 @@ public class InitScript : MonoBehaviour {
 		characters [2] = new Character (luke, lukeSp, "Luke", 18, 13, 12, 10, 17);
         characters[2].maxHealth *= 2;
         characters[2].currentHealth = characters[2].maxHealth;
-        characters [2].moveSet [0] = new Move ("Smash", "blah blah", 1, true, 30, 0, true, characters [2]);
+        characters [2].moveSet [0] = new Move ("Smash", "blah blah", 1, true, 25, 0, true, characters [2]);
 		characters [2].moveSet [1] = new Move ("Self-Inspire", "blah blah", 0, false, 0, 2, false, characters[2], 6, true);
-		characters [2].moveSet [2] = new Move ("Chord of Shards", "blah blah", 3, true, 50, 10, false, characters[2]);
+		characters [2].moveSet [2] = new Move ("Chord of Shards", "blah blah", 3, true, 40, 10, false, characters[2]);
 		characters [2].moveSet [3] = new Move ("Deafen", "blah blah", 1, true, 10, 0, true, characters[2], 7, true);
 		for (int i = 0; i < 4; i++) {
 			characters [2].mods [i] = effectIndex [0];
@@ -80,7 +80,7 @@ public class InitScript : MonoBehaviour {
 		characters [3] = new Character (rilee, rileeSp, "Rilee", 14, 12, 18, 15, 14);
         characters[3].maxHealth *= 2;
         characters[3].currentHealth = characters[3].maxHealth;
-        characters [3].moveSet [0] = new Move ("Firebolt", "blah blah", 1, true, 40, 4, false, characters[3]);
+        characters [3].moveSet [0] = new Move ("Firebolt", "blah blah", 1, true, 35, 4, false, characters[3]);
         characters [3].moveSet [1] = new Move ("Drain", "blah blah", 1, true, 0, -4, false, characters[3], 8);
         characters [3].moveSet [2] = new Move("Petrify", "blah blah", 1, true, 0, 8, false, characters[3], 9, true);
         characters [3].moveSet [3] = new Move("Mana Exchange", "blah blah", 1, false, 0, 4, false, characters[3], 10);

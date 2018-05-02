@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour {
     }
     void Gordon()
     {
-        if (gordon)
+        if (gordon && !(GameManager.manager.enemies[currentEnemy].currentHealth <= 0))
         {
 
             if (GameManager.manager.enemies[currentEnemy].currentHealth <= GameManager.manager.enemies[currentEnemy].maxHealth / 10)
@@ -62,15 +62,18 @@ public class EnemyAI : MonoBehaviour {
                 Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.activeDuo[Random.Range(0,2)];
             }
 			GameManager.manager.TurnEnd("EAI, 64");
-		}
+		}else if (gordon)
+            GameManager.manager.TurnEnd("EAI, 64");
     }
     void Burgess()
     {
-        if (burgess)
+        if (burgess && !(GameManager.manager.enemies[currentEnemy].currentHealth <= 0))
         {
 			Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[0];
             Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.activeDuo[Random.Range(0, 2)];
             GameManager.manager.TurnEnd("EAI, 72");
         }
+        else if (burgess)
+            GameManager.manager.TurnEnd("EAI, 64");
     }
 }
