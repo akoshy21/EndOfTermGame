@@ -252,10 +252,11 @@ public class Combat : MonoBehaviour {
 				if (selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						// rilee fix the math
+						Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
+
 						selectedMove [i].target [j].currentHealth -= (selectedMove [i].caster.attack * selectedMove [i].power) / (selectedMove [i].target [j].defense * 4);
 						Debug.Log (selectedMove [i].target [j].currentHealth);
 						UpdateCharStatus (selectedMove [i].target [j]);
-						Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
 					}
 				} else if (!selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {

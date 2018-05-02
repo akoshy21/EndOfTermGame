@@ -24,8 +24,6 @@ public class InitScript : MonoBehaviour {
 
 	public Character[] characters;
 
-	public Modifiers[] effectIndex;
-
 	// Use this for initialization
 	void Awake () {
 		// make this static script if there isnt one already
@@ -33,7 +31,7 @@ public class InitScript : MonoBehaviour {
 			roster = this;
 		}
 
-		InitializeIndex ();
+		Effects.index.InitializeIndex ();
 		MakeCharacters ();
 	}
 	
@@ -50,7 +48,7 @@ public class InitScript : MonoBehaviour {
 		characters [0].moveSet [2] = new Move ("Soft_Reset()", "blah blah", 1, false, 0, 3, false, characters [0], 2, true);
 		characters [0].moveSet [3] = new Move ("Upgrade()", "blah blah", 2, false, 0, 6, false, characters[0], 3, true);
 		for (int i = 0; i < 4; i++) {
-			characters [0].mods [i] = effectIndex [0];
+			characters [0].mods [i] = Effects.index.effectIndex [0];
 		}
 
 		characters [1] = new Character (cindy, cindySp, "Cindy", 13, 17, 10, 17, 10);
@@ -59,7 +57,7 @@ public class InitScript : MonoBehaviour {
 		characters [1].moveSet [2] = new Move ("Shield", "blah blah", 0, false, 0, 4, false, characters[1], 4, true);
 		characters [1].moveSet [3] = new Move ("Intervene", "blah blah", 1, false, 0, 2, false, characters[1], 5, true);
 		for (int i = 0; i < 4; i++) {
-			characters [1].mods [i] = effectIndex [0];
+			characters [1].mods [i] = Effects.index.effectIndex [0];
 		}
 
 		characters [2] = new Character (luke, lukeSp, "Luke", 18, 13, 12, 10, 17);
@@ -68,7 +66,7 @@ public class InitScript : MonoBehaviour {
 		characters [2].moveSet [2] = new Move ("Chord of Shards", "blah blah", 3, true, 50, 10, false, characters[2]);
 		characters [2].moveSet [3] = new Move ("Deafen", "blah blah", 1, true, 10, 0, true, characters[2], 7, true);
 		for (int i = 0; i < 4; i++) {
-			characters [2].mods [i] = effectIndex [0];
+			characters [2].mods [i] = Effects.index.effectIndex [0];
 		}
 
 		characters [3] = new Character (rilee, rileeSp, "Rilee", 14, 12, 18, 15, 14);
@@ -77,7 +75,7 @@ public class InitScript : MonoBehaviour {
         characters [3].moveSet [2] = new Move("Petrify", "blah blah", 1, true, 0, 8, false, characters[3], 9, true);
         characters [3].moveSet [3] = new Move("Mana Exchange", "blah blah", 1, false, 0, 4, false, characters[3], 10);
 		for (int i = 0; i < 4; i++) {
-			characters [3].mods [i] = effectIndex [0];
+			characters [3].mods [i] = Effects.index.effectIndex [0];
 		}
 
 		characters [4] = new Character (null, burgessSp, "Burgess", 10, 15, 20, 17, 18, true);
@@ -86,7 +84,7 @@ public class InitScript : MonoBehaviour {
 		characters [4].moveSet [2] = new Move ("Shield", "blah blah", 0, false, 0, 15, false, characters[4], 12, true);
 		characters [4].moveSet [3] = new Move ("Juice", "blah blah", 2, true, 20, 3, false, characters[4]);
 		for (int i = 0; i < 4; i++) {
-			characters [4].mods [i] = effectIndex [0];
+			characters [4].mods [i] = Effects.index.effectIndex [0];
 		}
 
 		characters [5] = new Character (null, gordonSp, "Gordon", 16, 12, 14, 15, 13, true);
@@ -95,22 +93,9 @@ public class InitScript : MonoBehaviour {
 		characters [5].moveSet [2] = new Move ("Fuel Mana", "blah blah", 1, false, 0, 4, false, characters[5], 8);
 		characters [5].moveSet [3] = new Move ("Sacrifice", "blah blah", 2, true, 50, 0, true, characters[5], 13);
 		for (int i = 0; i < 4; i++) {
-			characters [5].mods [i] = effectIndex [0];
+			characters [5].mods [i] = Effects.index.effectIndex [0];
 		}
 
 		GameManager.manager.MakeTheTeam ();
 	}
-
-	void InitializeIndex()
-	{
-		effectIndex = new Modifiers[20];
-
-		effectIndex [0] = new Modifiers (false, false, 0, 0, 0, 0, "NOTHING");
-		effectIndex [1] = new Modifiers (false, false, 0, 0, 0, 0, "heal");
-		effectIndex [2] = new Modifiers (false, false, 0, 1, 1, 0, "remove all effects");
-		effectIndex [3] = new Modifiers (false, false, 0, 0.2f, 0, 3, "ups damage");
-		effectIndex [4] = new Modifiers (false, true, 7, 0, 0, 5, "small shield");
-		effectIndex [5] = new Modifiers (false, false, 0, 0.2f, 0.2f, 3, "self inspire, ups speed n damage");
-	}
-
 }
