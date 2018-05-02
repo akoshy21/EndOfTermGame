@@ -48,7 +48,7 @@ public class Character {
 
 		maxHealth = (defense*spDefense)/10;
 		currentHealth = maxHealth;
-		maxMP = (attack*spAttack)/10;
+		maxMP = (spDefense*spAttack)/10;
 		currentMP = maxMP;
 
 		isEnemy = isEn;

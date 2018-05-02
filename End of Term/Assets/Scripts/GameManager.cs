@@ -131,20 +131,7 @@ public class GameManager : MonoBehaviour {
 				active0.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
 				active1.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (true);
                 return;
-            case CurrentTurn.Enemy0:
-                active1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
-                enemy0.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
-                return;
-            case CurrentTurn.Enemy1:
-                enemy0.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
-                enemy1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
-                return;
-            case CurrentTurn.Enemy2:
-                enemy1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
-                enemy2.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
-                return;
 			case CurrentTurn.ExecuteMoves:
-				enemy2.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
 				Combat.combat.MoveResults ();
 				curTurn = CurrentTurn.ActiveDuo0;
 				return;

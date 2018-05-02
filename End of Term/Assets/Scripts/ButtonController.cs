@@ -121,6 +121,18 @@ public class ButtonController : MonoBehaviour {
 		EventSystem.current.SetSelectedGameObject (null);
     }
 
+    void UpdateActivePlayer()
+    {
+        if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo0)
+        {
+            GameManager.manager.activePlayer = 0;
+        }
+        if (GameManager.manager.curTurn == GameManager.CurrentTurn.ActiveDuo1)
+        {
+            GameManager.manager.activePlayer = 1;
+        }
+    }
+
 	void ButtonClick()
 	{
 		switch (GameManager.manager.turnstate) {
@@ -139,11 +151,15 @@ public class ButtonController : MonoBehaviour {
 				GameManager.manager.turnstate = GameManager.TurnState.Menu;
 			}
 			else {
+                    // something feels wrong; reread later
+                UpdateActivePlayer();
 				Combat.combat.currentMove = GameManager.manager.activeDuo [GameManager.manager.activePlayer].moveSet [button-1];
+                    
 				Combat.combat.AddMoves (button);
-				if (Combat.combat.currentMove.targetCount != 2) {
+				if (!(Combat.combat.currentMove.targetCount == 2 && Combat.combat.currentMove.isAttack == false) && (Combat.combat.currentMove.targetCount != 0 && Combat.combat.currentMove.targetCount != 3)) {
 					GameManager.manager.turnstate = GameManager.TurnState.Target;
-				} else if (Combat.combat.currentMove.targetCount == 2) {
+				}
+                else {
 					switch (GameManager.manager.curTurn) {
 					case GameManager.CurrentTurn.ActiveDuo0:
 						GameManager.manager.curTurn = GameManager.CurrentTurn.ActiveDuo1;
