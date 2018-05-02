@@ -256,7 +256,7 @@ public class Combat : MonoBehaviour {
 						UpdateCharStatus (selectedMove [i].target [j]);
 					}
 				}
-			} else if (selectedMove [i].effectIndex != 0 && selectedMove[i].isAttack == false && selectedMove[i].isBuff == false) {
+			} else if (selectedMove [i].effectIndex == 1) {
 				for (int j = 0; j < selectedMove [i].targetCount; j++) {
 					Debug.Log ("HI " + selectedMove[i].target[j].characterName);
 					selectedMove [i].target [j].currentHealth += selectedMove [i].caster.spAttack * (selectedMove [i].power / 100);
