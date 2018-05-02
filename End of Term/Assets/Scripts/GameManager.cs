@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour {
         {
             case CurrentTurn.ActiveDuo0:
                 active0.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
+                active1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
                 return;
 			case CurrentTurn.ActiveDuo1:
 				active0.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
