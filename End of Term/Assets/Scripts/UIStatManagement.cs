@@ -28,7 +28,10 @@ public class UIStatManagement : MonoBehaviour {
 	public Text aD0;
 
 	public Image shieldP0;
+	public Image shieldP0P;
 	public Image shieldP1;
+	public Image shieldP1P;
+
 
 	void Update()
 	{
@@ -67,8 +70,18 @@ public class UIStatManagement : MonoBehaviour {
 		e2healthFill.fillAmount = ((float)GameManager.manager.enemies [2].currentHealth) / ((float)GameManager.manager.enemies [2].maxHealth);
 		e2manaFill.fillAmount = ((float)GameManager.manager.enemies [2].currentMP) / ((float)GameManager.manager.enemies [2].maxMP);
 
-		if (GameManager.manager.activeDuo [0].shield >= 0) {
-			
+		if (GameManager.manager.activeDuo [0].shield > 0) {
+			shieldP0P.gameObject.SetActive (true);
+			shieldP0.fillAmount = ((float)GameManager.manager.enemies [0].shield) / ((float)GameManager.manager.enemies [0].shieldMax);
+		} else {
+			shieldP0P.gameObject.SetActive (false);
+		}
+
+		if (GameManager.manager.activeDuo [1].shield > 0) {
+			shieldP1P.gameObject.SetActive (true);
+			shieldP1.fillAmount = ((float)GameManager.manager.enemies [1].shield) / ((float)GameManager.manager.enemies [1].shieldMax);
+		} else {
+			shieldP1P.gameObject.SetActive (false);
 		}
 	}
 }

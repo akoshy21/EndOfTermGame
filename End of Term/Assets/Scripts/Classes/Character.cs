@@ -26,6 +26,7 @@ public class Character {
 	public bool isEnemy;
 
 	public int shield;
+	public int shieldMax;
 
 	public Sprite portrait;
 	public Sprite charSprite;

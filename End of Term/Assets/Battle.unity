@@ -5920,7 +5920,9 @@ MonoBehaviour:
   aD1: {fileID: 669075009}
   aD0: {fileID: 1603476300}
   shieldP0: {fileID: 1175469736}
+  shieldP0P: {fileID: 470059242}
   shieldP1: {fileID: 1502011485}
+  shieldP1P: {fileID: 1125370009}
 --- !u!114 &1369381878
 MonoBehaviour:
   m_ObjectHideFlags: 0

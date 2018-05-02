@@ -30,6 +30,7 @@ public class InitScript : MonoBehaviour {
 		if (roster == null) {
 			roster = this;
 		}
+
 		MakeCharacters ();
 
 	}
