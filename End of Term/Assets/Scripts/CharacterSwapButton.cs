@@ -53,6 +53,7 @@ public class CharacterSwapButton : MonoBehaviour
 		Combat.combat.selectedMove [GameManager.manager.activePlayer] = new Move ("Swap", null, 0, false, 0, 0, false, GameManager.manager.activeDuo [GameManager.manager.activePlayer], 0);
 
         //Cycle to Next Turn After Swapping
-        GameManager.manager.turnstate = GameManager.TurnState.Menu;
+        GameManager.manager.TurnEnd();
+
     }
 }

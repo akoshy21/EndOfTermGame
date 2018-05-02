@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour {
 
 	public void TurnEnd(string source = null)
 	{
-		Debug.Log (source);
+		//Debug.Log (source);
 			switch (curTurn) {
 			case CurrentTurn.ActiveDuo0:
 				for (int i = 0; i < activeDuo [0].mods.Length; i++) {

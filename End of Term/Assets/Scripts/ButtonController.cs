@@ -172,7 +172,7 @@ public class ButtonController : MonoBehaviour {
 					}
 				}
 			}
-			Debug.Log ("CLICK");
+			//Debug.Log ("CLICK");
 
 			return;
 		case GameManager.TurnState.CharacterSwap:
