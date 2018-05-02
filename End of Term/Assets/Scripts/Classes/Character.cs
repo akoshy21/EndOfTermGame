@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Character {
 
+    public bool dead;
 	public string characterName;
 
 	// stats
@@ -38,6 +39,8 @@ public class Character {
 
 	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0, int s = 10, bool isEn = false, int sh = 0, bool sb = false)
 	{
+        dead = false;
+
 		attack = a;
 		defense = d;
 		spAttack = sa;

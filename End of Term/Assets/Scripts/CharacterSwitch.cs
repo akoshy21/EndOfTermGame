@@ -108,6 +108,35 @@ public class CharacterSwitch : MonoBehaviour {
 				}
 
 			}
+            else if(GameManager.manager.team[i].currentHealth <= 0)
+            {
+                if (i == 0)
+                {
+                    // set the red box to true
+                    selected1.gameObject.SetActive(false);
+                    // set the button text to selected
+                    b1.GetComponentInChildren<Text>().text = "DEAD";
+                    b1.interactable = false;
+                }
+                if (i == 1)
+                {
+                    selected2.gameObject.SetActive(false);
+                    b2.GetComponentInChildren<Text>().text = "DEAD";
+                    b2.interactable = false;
+                }
+                if (i == 2)
+                {
+                    selected3.gameObject.SetActive(false);
+                    b3.GetComponentInChildren<Text>().text = "DEAD";
+                    b3.interactable = false;
+                }
+                if (i == 3)
+                {
+                    selected4.gameObject.SetActive(false);
+                    b4.GetComponentInChildren<Text>().text = "DEAD";
+                    b4.interactable = false;
+                }
+            }
 			else
 			{
 				// if the active duo is not equal to team member i then do this

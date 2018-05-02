@@ -6,7 +6,6 @@ using System;
 
 public class Combat : MonoBehaviour {
 
-
 	public Move[] selectedMove;
 
 	public Move currentMove;
@@ -121,16 +120,16 @@ public class Combat : MonoBehaviour {
 		//Debug.Log (GameManager.manager.curTurn);
 		switch (GameManager.manager.curTurn) {
 		case GameManager.CurrentTurn.Enemy0:
-				EnemyAI.enemyai.gordon = true;
-				EnemyAI.enemyai.burgess = false;
+                    EnemyAI.enemyai.gordon = true;
+                    EnemyAI.enemyai.burgess = false;
 			return;
-		case GameManager.CurrentTurn.Enemy1:
-				EnemyAI.enemyai.gordon = false;
-				EnemyAI.enemyai.burgess = true;
+		case GameManager.CurrentTurn.Enemy1:               
+                    EnemyAI.enemyai.gordon = false;
+                    EnemyAI.enemyai.burgess = true;
 			return;
 		case GameManager.CurrentTurn.Enemy2:
-				EnemyAI.enemyai.gordon = true;
-				EnemyAI.enemyai.burgess = false;
+                    EnemyAI.enemyai.gordon = true;
+                    EnemyAI.enemyai.burgess = false;
 			return;
 		default:
                 EnemyAI.enemyai.gordon = false;
@@ -267,7 +266,7 @@ public class Combat : MonoBehaviour {
 
 		for(int i = 0; i < 5; i++)
 		{
-			if (selectedMove [i].isAttack) {
+			if (selectedMove [i].isAttack && selectedMove[i].caster.dead == false) {
 				if (selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						if (!selectedMove [i].target [j].shielded) {
@@ -282,8 +281,10 @@ public class Combat : MonoBehaviour {
 							
 						}
 						UpdateCharStatus (selectedMove [i].target [j]);
-						//Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
-					}
+                        //Debug.Log (i + ": " + GameManager.manager.enemies [j].characterName);
+                        if (selectedMove[i].target[j].currentHealth <= 0)
+                            selectedMove[i].target[j].dead = true;
+                    }
 				} else if (!selectedMove [i].isPhysical) {
 					for (int j = 0; j < selectedMove [i].targetCount; j++) {
 						if (!selectedMove [i].target [j].shielded) {
@@ -309,6 +310,7 @@ public class Combat : MonoBehaviour {
 					}
 				}
 			}
+            
 		}
 	}
 	}

@@ -60,8 +60,10 @@ public class GameManager : MonoBehaviour {
 		ConditionalObjects ();
 
 		SetupSprites ();
-        // Debug.Log(help);
-	}
+        //Debug.Log(curTurn);
+        Debug.Log("is 1 Dead? " + activeDuo[0].dead);
+        Debug.Log("is 2 Dead? " + activeDuo[1].dead);
+    }
 
     void GameManagerSetup()
     {
@@ -128,10 +130,14 @@ public class GameManager : MonoBehaviour {
             case CurrentTurn.ActiveDuo0:
                 active0.GetComponent<Transform>().GetChild(0).gameObject.SetActive(true);
                 active1.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
+                if (activeDuo[0].dead)
+                    turnstate = TurnState.CharacterSwap;
                 return;
 			case CurrentTurn.ActiveDuo1:
 				active0.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (false);
 				active1.GetComponent<Transform> ().GetChild (0).gameObject.SetActive (true);
+                if (activeDuo[1].dead)
+                    turnstate = TurnState.CharacterSwap;
                 return;
 			case CurrentTurn.ExecuteMoves:
 				Combat.combat.MoveResults ();
