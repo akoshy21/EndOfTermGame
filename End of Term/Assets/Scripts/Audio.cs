@@ -9,6 +9,18 @@ public class Audio : MonoBehaviour {
 
 	public AudioSource audio;
 
+	public static Audio music;
+
+	void Awake()
+	{
+		if (music == null) {
+			music = this;
+			DontDestroyOnLoad (this);
+		} else {
+			Destroy (this.gameObject);
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		audio = GetComponent<AudioSource> ();

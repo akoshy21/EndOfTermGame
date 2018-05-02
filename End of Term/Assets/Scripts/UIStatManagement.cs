@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIStatManagement : MonoBehaviour {
 
@@ -32,6 +33,8 @@ public class UIStatManagement : MonoBehaviour {
 		UpdateFills ();
 		aD0.text = GameManager.manager.activeDuo [0].characterName.ToUpper();
 		aD1.text = GameManager.manager.activeDuo [1].characterName.ToUpper();
+
+		CheckForDeaths ();
 
 		//
 	
@@ -64,5 +67,22 @@ public class UIStatManagement : MonoBehaviour {
 		e2healthFill.fillAmount = ((float)GameManager.manager.enemies [2].currentHealth) / ((float)GameManager.manager.enemies [2].maxHealth);
 		e2manaFill.fillAmount = ((float)GameManager.manager.enemies [2].currentMP) / ((float)GameManager.manager.enemies [2].maxMP);
 
+	}
+
+	public void CheckForDeaths()
+	{
+		if (GameManager.manager.team [0].dead && GameManager.manager.team [1].dead && GameManager.manager.team [2].dead && GameManager.manager.team [3].dead) {
+			GameManager.manager.end = -1;
+		}
+		if (GameManager.manager.enemies [0].dead && GameManager.manager.enemies [1].dead && GameManager.manager.enemies [2].dead) {
+			GameManager.manager.end = 1;
+		}
+	}
+
+	public void EndGame()
+	{
+		if (GameManager.manager.end != 0) {
+				SceneManager.LoadScene ("End", LoadSceneMode.Single);
+		}
 	}
 }

@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 
     // debug shit
     int help;
-    public bool end = false;
+    public int end = 0;
 
     void Awake () {
         GameManagerSetup();
