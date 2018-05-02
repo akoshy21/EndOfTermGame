@@ -3,22 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
+    public static EnemyAI enemyai;
 
+    public bool gordon;
+    public bool burgess;
+
+    int currentEnemy;
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (GameManager.manager.curTurn == GameManager.CurrentTurn.Enemy0) {
-			Debug.Log ("HERE");
+        if (enemyai == null)
+        {
+            enemyai = this;
+        }
+    }
 
-			Combat.combat.selectedMove [2] = Combat.combat.selectedMove [1];
-			Combat.combat.selectedMove [3] = Combat.combat.selectedMove [1];
-			Combat.combat.selectedMove [4] = Combat.combat.selectedMove [1];
+    // Update is called once per frame
+    void Update()
+    {
+        Gordon();
+        Burgess();
 
-			GameManager.manager.TurnEnd ();
-		}
-	}
+        if (GameManager.manager.curTurn == GameManager.CurrentTurn.Enemy0)
+                currentEnemy = 0;
+        if (GameManager.manager.curTurn == GameManager.CurrentTurn.Enemy1)
+                currentEnemy = 1;
+        if (GameManager.manager.curTurn == GameManager.CurrentTurn.Enemy2)
+                currentEnemy = 2;     
+    }
+    void Gordon()
+    {
+        if (gordon)
+        {
+
+            if (GameManager.manager.enemies[currentEnemy].currentHealth <= GameManager.manager.enemies[currentEnemy].maxHealth / 10)
+            {
+                //if Gordon's health drops below 10 percent, he self destructs and deals massive damage
+                Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[3];
+                Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.activeDuo[0];
+                Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.activeDuo[1];
+            }else if (GameManager.manager.enemies[1].currentHealth <= (GameManager.manager.enemies[1].maxHealth / 2) && GameManager.manager.enemies[currentEnemy].currentMP >= 4)
+            {
+                //if Burgess is half health or lower, gordon will heal him.
+                Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[1];
+                Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.enemies[1];
+            }else if (GameManager.manager.enemies[1].currentMP <= (GameManager.manager.enemies[1].maxMP / 2) && GameManager.manager.enemies[currentEnemy].currentMP >= 4)
+            {
+                //if Burgess is half MP or lower, gordon will grant him more magic
+                Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[2];
+                Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.enemies[1];
+            }
+            else
+            {
+                //If Burgess' needs are satiated and Gordon is not in danger, he will attack indiscriminately 
+                Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[0];
+                Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.enemies[Random.Range(1,2)];
+            }
+        }
+      //GameManager.manager.TurnEnd();
+    }
+    void Burgess()
+    {
+        if (burgess)
+        {
+            Combat.combat.selectedMove[currentEnemy + 2] = GameManager.manager.enemies[currentEnemy].moveSet[0];
+            Combat.combat.selectedMove[currentEnemy + 2].target[0] = GameManager.manager.enemies[Random.Range(1, 2)];
+            //GameManager.manager.TurnEnd();
+        }
+    }
 }
