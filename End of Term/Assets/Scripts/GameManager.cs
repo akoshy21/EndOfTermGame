@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager manager;
 
+	public GameObject music;
+
 	public int charID;
 
     public enum TurnState { Menu, Attacks, CharacterSwap, Stats, Target }
@@ -45,10 +47,13 @@ public class GameManager : MonoBehaviour {
         curTurn = CurrentTurn.ActiveDuo0;
 		SetupSprites ();
 
+		music.gameObject.SetActive (true);
+
     }
 
 
     void Update () {
+
         PanelManager();
         LightChange();
 
