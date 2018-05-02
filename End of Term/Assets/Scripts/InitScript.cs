@@ -30,15 +30,15 @@ public class InitScript : MonoBehaviour {
 		if (roster == null) {
 			roster = this;
 		}
-
-		Effects.index.InitializeIndex ();
 		MakeCharacters ();
+
 	}
 	
 	void MakeCharacters()
 	{
 		// create character array
 		characters = new Character[6];
+		Effects.index.InitializeIndex ();
 
         //string attackName, string desc, int targetNum, bool boolIsAttack, int pow, int manaCost, bool isPhys, Character cast, int eI = 1, bool buff = false
         // create characters and movesets

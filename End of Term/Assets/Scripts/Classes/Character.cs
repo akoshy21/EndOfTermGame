@@ -25,6 +25,8 @@ public class Character {
 
 	public bool isEnemy;
 
+	public int shield;
+
 	public Sprite portrait;
 	public Sprite charSprite;
 
@@ -32,7 +34,7 @@ public class Character {
 
 	public Modifiers[] mods = new Modifiers[4];
 
-	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0, int s = 10, bool isEn = false)
+	public Character (Sprite p = null, Sprite cs = null, string cn = null, int a = 0, int d = 0, int sa = 0, int sd = 0, int s = 10, bool isEn = false, int sh = 0)
 	{
 		attack = a;
 		defense = d;
@@ -45,6 +47,8 @@ public class Character {
 		charSprite = cs;
 
 		speed = s;
+
+		shield = sh;
 
 		maxHealth = (defense*spDefense)/10;
 		currentHealth = maxHealth;
@@ -81,6 +85,8 @@ public class Character {
 
 		mods = copy.mods;
 		moveSet = copy.moveSet;
+
+		shield = copy.shield;
 
 		RID = GameManager.manager.charID;
 		GameManager.manager.charID++;

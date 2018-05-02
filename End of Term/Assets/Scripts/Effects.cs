@@ -36,8 +36,30 @@ public class Effects : MonoBehaviour {
 
 	}
 
-	public void CheckEffects(int i)
+	public void CheckEffects(int ind, Character tar)
 	{
-		
+		switch (ind) {
+		case 2:
+			for(int i = 0; i < 4; i++)
+			{
+				tar.mods[i] = effectIndex[0];
+			}
+			return;
+		case 3:
+			for(int i = 0; i < 4; i++)
+			{
+				if(tar.mods[i] == effectIndex[0])
+				{
+					tar.mods[i] = effectIndex[4];
+					break;
+				}
+			}
+			return;
+		case 4:
+			
+			return;
+		default:
+			return;
+		}
 	}
 }
