@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour {
     // debug shit
     int help;
     public bool end = false;
+    public int gameEnd;
 
     void Awake () {
         GameManagerSetup();
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour {
         LightChange();
 
 		ConditionalObjects ();
+        EndGame();
 
 		SetupAnimators ();
         //Debug.Log(curTurn);
@@ -240,4 +243,19 @@ public class GameManager : MonoBehaviour {
 				return;
 			}
 		}
+
+    public void EndGame()
+    {
+        if (enemies[0].dead && enemies[1].dead && enemies[2].dead)
+        {
+            gameEnd = -1;
+            SceneManager.LoadScene("End", LoadSceneMode.Single);
+        }
+        if (team[0].dead && team[1].dead && team[2].dead && team[3].dead)
+        {
+            gameEnd = 1;
+            SceneManager.LoadScene("End", LoadSceneMode.Single);
+        }
+    }
+
 	}
